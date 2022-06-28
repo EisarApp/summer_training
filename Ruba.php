@@ -1,7 +1,6 @@
 <?php
-echo 'Hiii'; 
+echo 'Hi'; 
 
-echo 'Hiii'; 
-echo 'Hiii'; 
+
 
 ?>
