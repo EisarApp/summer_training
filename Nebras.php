@@ -1,4 +1,4 @@
 <?php
 echo " Hello everyone ^_^ "
-echo " from Nebras Alshareef"
+echo " from Nebras Alshareef "
 ?>
