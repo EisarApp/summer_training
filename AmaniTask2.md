@@ -1,6 +1,6 @@
 #cv
 ##Amani Mohammed Almuqati
-### **personal informationAge**
+### **personal information**
 -Front End Developer
 - 10- 12- 1999
 -amine1999m@hotmail.com
