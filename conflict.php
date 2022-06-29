@@ -1,6 +1,6 @@
 <?php
 echo 'push test';
-echo 'change 7';
+echo 'change amanii 1';
 echo 'change 2';
 echo 'change lujain';
 echo 'created with git bash';
