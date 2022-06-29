@@ -1,4 +1,3 @@
 <?php
-echo "hi, i'm lujain";
-echo "123";
+echo "good morning, this is task 1";
 ?>
