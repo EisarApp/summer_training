@@ -1,3 +1,3 @@
 <?php
-echo "amani Mohmaad Almuqati"
+echo "amani MohmaadAlmuqati"
 ?>
