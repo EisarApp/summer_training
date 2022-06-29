@@ -13,7 +13,7 @@ ___
 * Lilac
 * Nabeh
 ___
-### **I'm currently learning** 
+### **I'm currently learning** <img src="https://cdn-icons-png.flaticon.com/512/1067/1067357.png"  width="20" height="20">
 * Python
 * Data science
 * Laravel
