@@ -1,6 +1,7 @@
-# Wojood AlMatrafi
+# Wojood AlMatrafi<img src="https://cdn-icons-png.flaticon.com/512/3919/3919942.png"  width="25" height="25">
 
-Computer science student currently learning to become web developer, interested in learning and discovering many thing that blow my mind, passionate in data science.
+Computer science student currently learning to become web developer, interested in learning and discovering many thing that blow my mind, passionate in data science. 
+
 
 ___
 ### **skills i have**
