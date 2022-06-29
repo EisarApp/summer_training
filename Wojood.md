@@ -4,12 +4,11 @@ Computer science student currently learning to become web developer, interested 
 
 
 ___
-### **skills i have**
+### **skills i have** <img src="https://cdn-icons-png.flaticon.com/512/3090/3090490.png"  width="20" height="20">
 * HTML/CSS
 * PHP
 
-
-### **Projects i had fun doing it**
+### **Projects i had fun doing it** <img src="https://cdn-icons.flaticon.com/png/512/3266/premium/3266390.png?token=exp=1656544423~hmac=97e0d8d9d7d56466c86b234be3398b8e"  width="20" height="20">
 * Naqa
 * Lilac
 * Nabeh
