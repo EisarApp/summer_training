@@ -19,3 +19,8 @@ self-learning ********
 - hardware programming
 
 - information security
+
+# link
+- github: https://github.com/xilujain/LujainBugis
+
+- linkedin: @xilujain
