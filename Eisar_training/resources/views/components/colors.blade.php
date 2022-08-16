@@ -7,7 +7,9 @@
                     orange: '#FF6663',
                     orangelight: '#FF918E',
                     blue: '#374782',
-                    bluedark: '#061D70'
+                    bluedark: '#061D70'.
+                    eisar: '#FD4F42'
+
                 }
             }
         }
