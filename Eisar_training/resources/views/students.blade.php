@@ -3,13 +3,15 @@
 <head>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
-    <x-colors/>
+    <script script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <x-colors />
 </head>
-<style>
+{{-- <style>
     .dropdown:hover>.dropdown-content {
         display: block;
     }
-</style>
+</style> --}}
+
 <body class="antialiased font-sans">
 
 
@@ -19,11 +21,11 @@
                 {{-- filtter input if exite--}}
                 <div class="block relative">
                     <button type="button"
-                        class="inline-block mr-2 float-left px-4 py-2.5 bg-eisar-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
+                        class="inline-block mr-2 float-left px-4 py-2.5 bg-orange-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
                         طالب جديد
                     </button>
                     <button type="button"
-                        class="inline-block ml-2 float-left px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إستراد
+                        class="inline-block ml-2 float-left px-4 py-2.5 bg-orange-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إستراد
                         طلاب
                     </button>
                 </div>
@@ -33,33 +35,49 @@
             <div class="my-2 flex sm:flex-row flex-col">
                 {{-- search input --}}
 
-                <div class="dropdown block relative mx-2">
+                <div class="block relative mx-2 " x-data="{open:false}">
                     <button
-                        class=" appearance-none rounded border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
+                        class="appearance-none rounded border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
+                        @click="open = ! open">
                         <span class="pl-5">الشعبة</span>
                     </button>
-                    <ul class="dropdown-content absolute hidden text-gray-700 pt-1">
-                        <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                                href="#">Option 1</a></li>
-                        <li><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Option
-                                2</a></li>
-                        <li><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                                href="#">Option 4</a></li>
+                    <ul class=" absolute text-gray-700 pt-1" x-show="open" @click.outside="open = false">
+                        <li
+                            class="rounded-t text-right bg-gray-100 hover:bg-gray-200 py-2 pl-8 pr-2 block whitespace-no-wrap">
+                            اول خيار
+                        </li>
+                        <li
+                            class="rounded-t text-right bg-gray-100 hover:bg-gray-200 py-2 pl-8 pr-2 block whitespace-no-wrap">
+                            ثاني خيار
+                        </li>
+                        <li
+                            class="rounded-t text-right bg-gray-100 hover:bg-gray-200 py-2 pl-8 pr-2 block whitespace-no-wrap">
+                            ثالث خيار
+                        </li>
                     </ul>
+
                 </div>
-                <div class="dropdown block relative ">
+                <div class="block relative " x-data="{open:false}">
                     <button
-                        class=" appearance-none rounded  border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
+                        class="appearance-none rounded border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
+                        @click="open = ! open">
                         <span class="pl-5">الجهة</span>
                     </button>
-                    <ul class="dropdown-content absolute hidden text-gray-700 pt-1">
-                        <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                                href="#">Option 1</a></li>
-                        <li><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Option
-                                2</a></li>
-                        <li><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                                href="#">Option 4</a></li>
+                    <ul class=" absolute text-gray-700 pt-1" x-show="open" @click.outside="open = false">
+                        <li
+                            class="rounded-t text-right bg-gray-100 hover:bg-gray-200 py-2 pl-8 pr-2 block whitespace-no-wrap">
+                            اول خيار
+                        </li>
+                        <li
+                            class="rounded-t text-right bg-gray-100 hover:bg-gray-200 py-2 pl-8 pr-2 block whitespace-no-wrap">
+                            ثاني خيار
+                        </li>
+                        <li
+                            class="rounded-t text-right bg-gray-100 hover:bg-gray-200 py-2 pl-8 pr-2 block whitespace-no-wrap">
+                            ثالث خيار
+                        </li>
                     </ul>
+
                 </div>
 
             </div>
