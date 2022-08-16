@@ -2,28 +2,30 @@
 
 <head>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <x-colors />
 </head>
 
 
 <body class="antialiased font-sans">
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8 ">
-            <div class="my-2 flex sm:flex-row flex-col float-left">
+            <div class="my-2 flex sm:flex-row flex-col float-left md:flex-col">
 
                 <div class="block relative">
                     <button type="button"
-                        class="inline-block mr-2 float-left px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">عرض صلاحيات الموظفين
-                        
+                        class="inline-block mr-2 float-left px-4 py-2.5 bg-orange-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out">عرض
+                        صلاحيات الموظفين
+
                     </button>
                     <button type="button"
-                        class="inline-block ml-2 float-left px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
-                        موظف
+                        class="inline-block ml-2 float-left px-4 py-2.5 bg-orange-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
+                        موظف جديد
                     </button>
                 </div>
 
             </div>
-            
-        
+
+
             <div class="my-2 flex sm:flex-row flex-col">
                 {{-- search input --}}
                 <div class="block relative">
@@ -45,14 +47,9 @@
                         <thead
                             class="border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                             <tr>
-                                <th class="px-5 py-4">
-                                    الرقم
-                                </th>
+
                                 <th class="px-5 py-4">
                                     اسم الموظف
-                                </th>
-                                <th class="px-5 py-4">
-                                    الصلاحيات
                                 </th>
                                 <th class="px-5 py-4">
                                     المسمى الوظيفي
@@ -61,36 +58,26 @@
                                     القسم
                                 </th>
                                 <th class="px-5 py-4">
-                                    الخطة
+                                    الايميل
                                 </th>
                                 <th class="px-5 py-4">
-                                    ب
+                                    رقم الجوال
+                                </th>
+                                <th class="px-5 py-4">
+
                                 </th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <div class="flex items-center">
-                                        <div class="ml-3">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                12345
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
+
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap"> م.هند </p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">
-                                        admin
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        مدرب
+                                        مدربة
                                     </p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -100,21 +87,26 @@
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">
-                                        الخطة
+                                        example@gamil.com
+                                    </p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        0558887777
                                     </p>
                                 </td>
 
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     {{-- buttons here --}}
                                     {{-- <div class="flex space-x-2 justify-center">
-                                       
+
                                     </div> --}}
                                     <div class="block relative justify-center">
                                         <div>
                                             <button type="button"
-                                                class="inline-block px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out">
+                                                class="inline-block mr-2 float-left px-4 py-2.5 bg-orange-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out">
                                                 تواصل</button>
-                                            
+
                                         </div>
                                     </div>
                                 </td>
