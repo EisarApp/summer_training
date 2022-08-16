@@ -3,14 +3,13 @@
 <head>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <x-colors/>
 </head>
 <style>
     .dropdown:hover>.dropdown-content {
         display: block;
     }
 </style>
-
-
 <body class="antialiased font-sans">
 
 
@@ -20,7 +19,7 @@
                 {{-- filtter input if exite--}}
                 <div class="block relative">
                     <button type="button"
-                        class="inline-block mr-2 float-left px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
+                        class="inline-block mr-2 float-left px-4 py-2.5 bg-eisar-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
                         طالب جديد
                     </button>
                     <button type="button"
