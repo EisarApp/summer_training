@@ -9,20 +9,16 @@
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8 ">
             <div class="my-2 flex sm:flex-row flex-col float-left">
-
-                <div class="block relative">
+                {{-- filtter input  if exite--}}
+                <div class="block">
                     <button type="button"
-                        class="inline-block mr-2 float-left px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">عرض صلاحيات الموظفين
-                        
-                    </button>
-                    <button type="button"
-                        class="inline-block ml-2 float-left px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
-                        موظف
-                    </button>
+                    class="inline-block float-left px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
+                    موظف جديد
+                </button>
                 </div>
+             
 
             </div>
-            
         
             <div class="my-2 flex sm:flex-row flex-col">
                 {{-- search input --}}
@@ -64,7 +60,7 @@
                                     الخطة
                                 </th>
                                 <th class="px-5 py-4">
-                                    ب
+                                    
                                 </th>
 
                             </tr>
@@ -112,9 +108,13 @@
                                     <div class="block relative justify-center">
                                         <div>
                                             <button type="button"
-                                                class="inline-block px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out">
-                                                تواصل</button>
-                                            
+                                                class="inline-block px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out">تعديل
+                                                الصلاحية</button>
+                                            <button type="button"
+                                                class="inline-block px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out">عرض</button>
+                                            <button type="button"
+                                                class="inline-block px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">تغير
+                                                كلمة المرور</button>
                                         </div>
                                     </div>
                                 </td>
