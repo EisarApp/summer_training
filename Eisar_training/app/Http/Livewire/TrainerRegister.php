@@ -36,7 +36,7 @@ class TrainerRegister extends Component
 
 
     //Model Binding
-    public $type;
+    public $trainerType;
 
     // private $validationRules = [
     //     1 => [

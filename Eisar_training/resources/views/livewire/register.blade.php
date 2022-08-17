@@ -7,17 +7,17 @@
             </a>
             {{-- user type --}}
             <div class="flex py-3 ">
-                <x-form.radio value="جهة تعليمية" class="px-2" />
-                <x-form.radio value="طالب" class="px-4" />
-                <x-form.radio value="جهة تدريب" class="px-4" />
+                <x-form.user-type value="جهة تعليمية" class="px-2" />
+                <x-form.user-type value="طالب" class="px-4" />
+                <x-form.user-type value="جهة تدريب" class="px-4" />
 
             </div>
 
-            @if($type == "طالب")
+            @if($userType == "طالب")
             <livewire:trainer-register />
-            @elseif($type == "جهة تعليمية")
+            @elseif($userType == "جهة تعليمية")
             <livewire:university-register />
-            @elseif($type == "جهة تدريب")
+            @elseif($userType == "جهة تدريب")
             <livewire:institute-register />
             @endif
 

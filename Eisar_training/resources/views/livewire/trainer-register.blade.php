@@ -20,11 +20,11 @@
 
             {{-- trainer type --}}
             <div class="flex py-3 ">
-                <x-form.radio value="طالب" class="px-2" />
-                <x-form.radio value="خريج" class="px-4" />
+                <x-form.trainer-type value="طالب" class="px-2" />
+                <x-form.trainer-type value="خريج" class="px-4" />
             </div>
 
-            @if($type == "طالب")
+            @if($trainerType == "طالب")
             <x-form.field />
 
             <!--  dropdown region and city -->
@@ -109,7 +109,7 @@
                 </div>
             </x-form.field>
 
-            @elseif($type == "خريج")
+            @elseif($trainerType == "خريج")
             <x-form.field />
 
             <!--  dropdown region and city -->

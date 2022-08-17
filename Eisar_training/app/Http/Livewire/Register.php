@@ -7,7 +7,7 @@ use Livewire\Component;
 class Register extends Component
 {
     //Model Binding
-    public $type;
+    public $userType;
 
 
     public function render()
