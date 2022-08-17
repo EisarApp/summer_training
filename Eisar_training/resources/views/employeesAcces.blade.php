@@ -35,115 +35,21 @@
                 </div>
 
             </div>
-            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                <div class="inline-block min-w-full shadow rounded-lg">
-                    <table class="min-w-full leading-normal text-right">
-                        <thead
-                            class="border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                            <tr>
-                                <th class="px-5 py-4">
-                                    الرقم
-                                </th>
-                                <th class="px-5 py-4">
-                                    اسم الموظف
-                                </th>
-                                <th class="px-5 py-4">
-                                    الصلاحيات
-                                </th>
-                                <th class="px-5 py-4">
-                                    المسمى الوظيفي
-                                </th>
-                                <th class="px-5 py-4">
-                                    القسم
-                                </th>
-                                <th class="px-5 py-4">
-                                    الخطة
-                                </th>
-                                <th class="px-5 py-4">
+            <x-table :headers="['اسم الخطة','القسم']">
+                @foreach($Users as $user=> $data)
+                <tr>
 
-                                </th>
+                    <x-table-data>
+                        {{$data;}}
+                        {{-- {{$user->name;}} --}}
+                    </x-table-data>
+                    <x-table-data>
+                        {{$data;}}
+                    </x-table-data>
+                </tr>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <div class="flex items-center">
-                                        <div class="ml-3">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                12345
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap"> م.هند </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        admin
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        مدرب
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        قسم التدريب والتطوير
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        الخطة
-                                    </p>
-                                </td>
-
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    {{-- buttons here --}}
-                                    {{-- <div class="flex space-x-2 justify-center">
-
-                                    </div> --}}
-
-                                    {{-- <div class="block relative justify-center">
-                                        <div>
-                                            <button type="button"
-                                                class="inline-block px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out">تعديل
-                                                الصلاحية</button>
-                                            <button type="button"
-                                                class="inline-block px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out">عرض</button>
-                                            <button type="button"
-                                                class="inline-block px-4 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">تغير
-                                                كلمة المرور</button>
-                                        </div>
-                                    </div> --}}
-                                    <div class="my-2 flex sm:flex-row flex-col">
-                                        {{-- fix the width--}}
-                                        <div class="inline-flex relative">
-                                            <button type="button"
-                                                class="inline-block mr-2 px-4 py-2.5 bg-orange-500 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out">
-                                         تعديل الصلاحية
-                                            </button>
-                                            <button type="button"
-                                                class="inline-block mr-2 px-4 py-2.5 bg-orange-500 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out">
-                                                عرض
-                                            </button>
-                                            <button type="button"
-                                                class="inline-block mr-2 px-4 py-2.5 bg-orange-500 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-orange-800 hover:shadow-lg focus:bg-orange-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out">
-                                                تغير كلمة المرور
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
+                @endforeach
+            </x-table>
         </div>
     </div>
 </body>

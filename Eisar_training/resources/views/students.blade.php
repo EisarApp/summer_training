@@ -78,67 +78,21 @@
                 </div>
 
             </div>
-            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                <div class="inline-block min-w-full shadow rounded-lg">
-                    <table class="min-w-full leading-normal text-right">
-                        <thead
-                            class="border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                            <tr>
-                                <th class="px-5 py-4">
-                                    اسم الطالب
-                                </th>
-                                <th class="px-5 py-4">
-                                    الرقم الجامعي
-                                </th>
-                                <th class="px-5 py-4">
-                                    اسم الجهة
-                                </th>
-                                <th class="px-5 py-4">
-                                    اسم مسؤول الجهة
-                                </th>
-                                <th class="px-5 py-4">
-                                    الشعبة
-                                </th>
+            <x-table :headers="['اسم الخطة','القسم']">
+                @foreach($Users as $user=> $data)
+                <tr>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <div class="flex items-center">
-                                        <div class="ml-3">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                جمانه مطهر
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap"> 439000877 </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        إيسار
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        أ.ربى الكراني
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        12
-                                    </p>
-                                </td>
+                    <x-table-data>
+                        {{$data;}}
+                        {{-- {{$user->name;}} --}}
+                    </x-table-data>
+                    <x-table-data>
+                        {{$data;}}
+                    </x-table-data>
+                </tr>
 
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
+                @endforeach
+            </x-table>
         </div>
     </div>
 </body>
