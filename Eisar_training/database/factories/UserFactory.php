@@ -19,10 +19,16 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'type_id'=>1,
             'email' => fake()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'password' => '1234567', // password
+            'gender'=>'f',
+            'mobile'=>0555555555,
+            'profile_picture'=>$this->faker->word(),
+            'is_active'=>1,
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            
         ];
     }
 
