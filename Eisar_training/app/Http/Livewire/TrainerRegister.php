@@ -11,10 +11,6 @@ use App\Models\Department;
 
 class TrainerRegister extends Component
 {
-    public $currentPage = 1;
-    public $success;
-
-
     // Form properties
     public $firstName;
     public $lastName;
@@ -42,18 +38,6 @@ class TrainerRegister extends Component
     //Model Binding
     public $type;
 
-
-    public $pages = [
-        1 => [
-            'heading' => 'المعلومات الشخصية',
-            'subheading' => 'أدخل بياناتك الشخصية للبدء',
-        ],
-        2 => [
-            'heading' => 'المعلومات الأكاديمية',
-            'subheading' => '',
-        ],
-    ];
-
     // private $validationRules = [
     //     1 => [
     //         'firstName' => ['required', 'min:3'],
@@ -65,50 +49,6 @@ class TrainerRegister extends Component
     //         'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
     //     ],
     // ];
-
-    // public function updated($propertyName)
-    // {
-    //     $this->validateOnly($propertyName, $this->validationRules[$this->currentPage]);
-    // }
-
-    public function goToNextPage()
-    {
-        // $this->validate($this->validationRules[$this->currentPage]);
-        $this->currentPage++;
-    }
-
-    public function goToPreviousPage()
-    {
-        $this->currentPage--;
-    }
-
-    public function resetSuccess()
-    {
-        $this->reset('success');
-    }
-
-    public function submit()
-    {
-        $rules = collect($this->validationRules)->collapse()->toArray();
-
-        $this->validate($rules);
-
-
-        User::create([
-            'name' => "{$this->firstName} {$this->lastName}",
-            'type_id' => $this->type_id,
-            'email' => $this->email,
-            'password' => bcrypt($this->password),
-            'gender' => $this->gender,
-            'mobile' => $this->mobile,
-        ]);
-
-        $this->reset();
-        $this->resetValidation();
-
-        $this->success = 'User created successfully!';
-    }
-
 
     public function render()
     {
