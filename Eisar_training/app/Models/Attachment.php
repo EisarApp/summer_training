@@ -1,11 +1,11 @@
 <?php
 
-namespace Users;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Attachment extends Model 
+class Attachment extends Model
 {
 
     protected $table = 'attachments';
@@ -14,5 +14,4 @@ class Attachment extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-
 }
