@@ -70,12 +70,12 @@ class CreateForeignKeys extends Migration {
 						->onUpdate('restrict');
 		});
 		Schema::table('plans', function(Blueprint $table) {
-			$table->foreign('created_by')->references('id')->on('users')
+			$table->foreign('created_by')->references('id')->on('user_employees')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
 		Schema::table('plans', function(Blueprint $table) {
-			$table->foreign('supervisor_id')->references('id')->on('users')
+			$table->foreign('supervisor_id')->references('id')->on('user_employees')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
