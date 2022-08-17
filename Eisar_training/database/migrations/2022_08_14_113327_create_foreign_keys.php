@@ -58,8 +58,14 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
+		
 		Schema::table('training_requests', function(Blueprint $table) {
 			$table->foreign('plan_id')->references('id')->on('plans')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+		Schema::table('plans', function(Blueprint $table) {
+			$table->foreign('company_id')->references('id')->on('user_companies')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
@@ -139,12 +145,22 @@ class CreateForeignKeys extends Migration {
 						->onUpdate('restrict');
 		});
 		Schema::table('user_companies', function(Blueprint $table) {
+			$table->foreign('user_id')->references('id')->on('users')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+		Schema::table('user_companies', function(Blueprint $table) {
 			$table->foreign('city_id')->references('id')->on('cities')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
 		Schema::table('user_companies', function(Blueprint $table) {
 			$table->foreign('region_id')->references('id')->on('regions')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+		Schema::table('user_employees', function(Blueprint $table) {
+			$table->foreign('company_id')->references('id')->on('user_companies')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});

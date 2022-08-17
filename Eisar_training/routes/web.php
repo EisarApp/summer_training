@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('employeesAcces');
+Route::get('posts/post', function () {
+    return view('plan.show');
 });
