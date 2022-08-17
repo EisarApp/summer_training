@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Plan;
+use App\Models\User;
+use App\Models\UserTrainee;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,13 @@ class TrainingRequestFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => 1,
+            'created_by' => User::factory(),
+            'status' => 'approved',
+            'notes' => $this->faker->sentence,
+            'plan_id' => Plan::factory(),
+            'created_at' => now(),
+            'updated_at' => now()
         ];
     }
 }

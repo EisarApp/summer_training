@@ -19,16 +19,15 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'type_id'=>1,
+            'type_id' => 1,
             'email' => fake()->safeEmail(),
             'password' => '1234567', // password
-            'gender'=>'f',
-            'mobile'=>0555555555,
-            'profile_picture'=>$this->faker->word(),
-            'is_active'=>1,
-            'created_at'=>now(),
-            'updated_at'=>now(),
-            
+            'gender' => 'f',
+            'mobile' => 0555555555,
+            'profile_picture' => $this->faker->word(),
+            'is_active' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 

@@ -18,17 +18,16 @@ class UserEmployeeFactory extends Factory
     public function definition()
     {
         return [
-            'id'=>1,
-            'user_id'=>User::factory(),
-            'company_id'=>1,
-            'department'=>'mangmente',
-            'job_title'=>'trainer',
-            'nationality'=>'saudi',
-            'birth_date'=>fake()->date(),
-            'qualification'=>fake()->sentence(),
-            'created_at'=>now(),
-            'updated_at'=>now(),
-            
+            'user_id' => User::factory(),
+            'company_id' => 1,
+            'department' => 'management',
+            'job_title' => 'trainer',
+            'nationality' => 'saudi',
+            'birth_date' => fake()->date(),
+            'qualification' => fake()->sentence(),
+            'created_at' => now(),
+            'updated_at' => now(),
+
         ];
     }
 }

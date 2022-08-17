@@ -19,7 +19,6 @@ class UserTraineeFactory extends Factory
     public function definition()
     {
         return [
-            'id'=>1,
             'user_id'=>User::factory(),
             'region_id'=>1,
             'city_id'=>1,
