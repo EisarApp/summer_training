@@ -19,7 +19,7 @@
     <div class="grid grid-cols-5">
         <x-student.student-side-menu />
         <div class="col-span-4">
-            <x-navbar class="px-0" />
+            <x-student.student-navbar class="px-0" />
             <div class="flex justify-start items-start gap-12 mt-2 ">
                 <x-student.student-cards color="bg-orange-500" />
                 <x-student.student-cards color="bg-orange-200" />
