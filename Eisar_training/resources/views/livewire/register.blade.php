@@ -20,7 +20,6 @@
             @elseif($userType == "جهة تدريب")
             <livewire:company-register />
             @endif
-
         </form>
     </section>
 </div>
