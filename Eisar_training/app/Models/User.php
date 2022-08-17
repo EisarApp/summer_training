@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models;
-
+namespace Users;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model
+class User extends Model 
 {
 
     protected $table = 'users';
@@ -20,4 +19,5 @@ class User extends Model
     {
         return $this->hasOne('Users\Users', 'type_id', 'id');
     }
+
 }
