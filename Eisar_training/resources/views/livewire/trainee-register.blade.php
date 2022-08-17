@@ -20,11 +20,11 @@
 
             {{-- trainer type --}}
             <div class="flex py-3 ">
-                <x-form.trainer-type value="طالب" class="px-2" />
-                <x-form.trainer-type value="خريج" class="px-4" />
+                <x-form.trainee-type value="طالب" class="px-2" />
+                <x-form.trainee-type value="خريج" class="px-4" />
             </div>
 
-            @if($trainerType == "طالب")
+            @if($traineeType == "طالب")
             <x-form.field />
 
             <!--  dropdown region and city -->
@@ -108,8 +108,13 @@
                         class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                 </div>
             </x-form.field>
+            <x-form.field/>
 
-            @elseif($trainerType == "خريج")
+            <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
+                <x-form.button type="submit" color="indigo" text="Submit" />
+            </div>
+
+            @elseif($traineeType == "خريج")
             <x-form.field />
 
             <!--  dropdown region and city -->
@@ -195,6 +200,11 @@
                         class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                 </div>
             </x-form.field>
+            <x-form.field/>
+
+            <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
+                <x-form.button type="submit" color="indigo" text="Submit" />
+            </div>
 
             @endif
         </div>

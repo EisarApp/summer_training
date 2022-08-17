@@ -9,7 +9,7 @@ use App\Models\Region;
 use App\Models\University;
 use App\Models\Department;
 
-class TrainerRegister extends Component
+class CompanyRegister extends Component
 {
     // Form properties
     public $firstName;
@@ -50,9 +50,9 @@ class TrainerRegister extends Component
     //     ],
     // ];
 
+
     public function render()
     {
-
         if (!empty($this->region)) {
             $this->cities = City::where('region_id', $this->region)->get();
         }
@@ -62,7 +62,7 @@ class TrainerRegister extends Component
         
         $regions = Region::orderBy('name')->get();
         $universities = University::orderBy('name')->get();
-        return view('livewire.trainer-register')->with([
+        return view('livewire.company-register')->with([
             'regions' => $regions,
             'universities'=>$universities,
         ]);

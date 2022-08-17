@@ -14,13 +14,12 @@
             </div>
 
             @if($userType == "طالب")
-            <livewire:trainer-register />
+            <livewire:trainee-register />
             @elseif($userType == "جهة تعليمية")
             <livewire:university-register />
             @elseif($userType == "جهة تدريب")
-            <livewire:institute-register />
+            <livewire:company-register />
             @endif
-
 
         </form>
     </section>
