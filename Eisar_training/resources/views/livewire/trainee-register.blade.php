@@ -18,14 +18,14 @@
             </x-form.form-dropdown>
             <x-form.field />
 
-            {{-- trainer type --}}
+            @if(! $traineeType)
             <div class="flex py-3 ">
                 <x-form.trainee-type value="طالب" class="px-2" />
                 <x-form.trainee-type value="خريج" class="px-4" />
             </div>
+            @endif
 
             @if($traineeType == "طالب")
-            <x-form.field />
 
             <!--  dropdown region and city -->
             <x-form.form-dropdown label="المنطقة" name="region">
@@ -108,14 +108,15 @@
                         class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                 </div>
             </x-form.field>
-            <x-form.field/>
+            <x-form.field />
 
-            <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
-                <x-form.button type="submit" color="indigo" text="Submit" />
-            </div>
+            <x-form.field>
+                <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
+                    <x-form.button type="submit" color="indigo" text="Submit" />
+                </div>
+            </x-form.field>
 
             @elseif($traineeType == "خريج")
-            <x-form.field />
 
             <!--  dropdown region and city -->
             <x-form.form-dropdown label="المنطقة" name="region">
@@ -200,11 +201,13 @@
                         class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                 </div>
             </x-form.field>
-            <x-form.field/>
+            <x-form.field />
 
-            <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
-                <x-form.button type="submit" color="indigo" text="Submit" />
-            </div>
+            <x-form.field>
+                <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
+                    <x-form.button type="submit" color="indigo" text="Submit" />
+                </div>
+            </x-form.field>
 
             @endif
         </div>

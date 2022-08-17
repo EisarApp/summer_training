@@ -51,18 +51,19 @@
             </x-form.field>
 
             <x-form.field>
-                <x-form.label label="الوصف" name="description"/>
-                <textarea class="border border-gray-200 p-2 w-full rounded" name="description" >
+                <x-form.label label="الوصف" name="description" />
+                <textarea class="border border-gray-200 p-2 w-full rounded" name="description">
 
                     </textarea>
             </x-form.field>
 
             <x-form.input label="الموقع" name="domain" type="url" />
-            <x-form.input label="حجم المنشأة" name="facility_size" type="number"/>
-            
-            <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
-                <x-form.button type="submit" color="indigo" text="Submit" />
-            </div>
+            <x-form.input label="حجم المنشأة" name="facility_size" type="number" />
+            <x-form.field>
+                <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
+                    <x-form.button type="submit" color="indigo" text="Submit" />
+                </div>
+            </x-form.field>
         </div>
 
 
