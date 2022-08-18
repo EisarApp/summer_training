@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Plan;
+use App\Models\UserEmployee;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('posts/post', function () {
-    return view('plan.show');
+Route::get('/', function () {
+
+    return view('plan', ['plans' => Plan::all()]);
 });
+
+Route::get('plan/create', function () {
+
+    return view('add-plan-form', ['employees' => UserEmployee::all()]);
+});
+Route::post('plan', [PlanController::class, 'store']);

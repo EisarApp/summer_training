@@ -10,6 +10,23 @@ class Plan extends Model
 {
 
     protected $table = 'plans';
+    protected $fillable = [
+        'name',
+        'created_by',
+        'supervisor_id',
+        'company_id',
+        'description',
+        'department',
+        'training_type',
+        'training_method',
+        'students_number',
+        'starting_time',
+        'students_number',
+        'ending_date',
+        'require_training_letter',
+        'require_national_id'
+    ];
+
     public $timestamps = true;
 
     use SoftDeletes;

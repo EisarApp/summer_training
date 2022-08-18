@@ -20,6 +20,6 @@ class UserEmployee extends Model
     //users to user_trainee
     public function inforamtion()
     {
-        $this->hasOne('Users', 'user_id');
+       return  $this->hasOne(User::class, 'id');
     }
 }

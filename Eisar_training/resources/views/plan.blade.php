@@ -14,24 +14,35 @@
                     {{-- filtter input if exite--}}
                 </div>
 
-                
+
             </div>
-            {{-- temporary --}}
-            @php
-            $Users=array('pen'=>'33','jhon'=>'55');
-            @endphp
+
 
             <x-table :headers="['اسم الخطة',' القسم المسؤول',' الية التدريب','عدد الطلاب','نوع التدريب',' ']">
-                @foreach($Users as $user=> $data)
+                @foreach($plans as $plan)
                 <tr>
 
                     <x-table-data>
-                        {{$data;}}
-                        {{-- {{$user->name;}} --}}
+                        {{$plan->name;}}
+                       
                     </x-table-data>
+
                     <x-table-data>
-                        {{$data;}}
+                        {{$plan->department;}}
                     </x-table-data>
+
+                    <x-table-data>
+                        {{$plan->training_method;}}
+                    </x-table-data>
+
+                    <x-table-data>
+                        {{$plan->students_number;}}
+                    </x-table-data>
+
+                    <x-table-data>
+                        {{$plan->training_type;}}
+                    </x-table-data>
+
                     <x-table-data>
                         <button
                             class=" items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-500 focus:outline-none focus:shadow-outline-gray"
@@ -62,9 +73,9 @@
 
 
             <div>
-                <button type="button"
-                    class=" float-left mb-2 w-64 px-6 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
-                    خطة</button>
+                <a href="/plan/create"
+                    class=" text-center float-left mb-2 w-64 px-6 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
+                    خطة</a>
             </div>
         </div>
     </div>
