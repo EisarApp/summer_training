@@ -53,9 +53,10 @@
                                 </path>
                             </svg>
                         </a>
-                        <a
+                        <a href="/plan/{{$plan->id}}"
                             class="items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-500 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Delete">
+                            
 
                             <svg class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

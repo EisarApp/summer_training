@@ -26,3 +26,4 @@ Route::get('plan/create', function () {
     return view('add-plan-form', ['employees' => UserEmployee::all()]);
 });
 Route::post('plan', [PlanController::class, 'store']);
+Route::get('plan/{plan}', [PlanController::class, 'destroy']);
