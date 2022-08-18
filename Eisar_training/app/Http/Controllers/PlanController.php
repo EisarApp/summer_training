@@ -28,6 +28,16 @@ class PlanController extends Controller
         ]);
     }
 
+    public function update(Plan $plan)
+    {
+
+        $attributes = $this->validatePlan();
+
+        $plan->update($attributes);
+
+        return redirect('/');
+    }
+
     protected function validatePlan()
     {
 
