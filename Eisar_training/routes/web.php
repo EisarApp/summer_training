@@ -16,14 +16,7 @@ use App\Http\Controllers\PlanController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('supervisor-student');
-// });
-// Route::get('/', function () {
-//     return view('student-dashboard');
-// });
 Route::get('/', function () {
-
 
     return view('plan', ['plans' => Plan::all()]);
 });
@@ -31,9 +24,6 @@ Route::get('/', function () {
 Route::get('plan/create', function () {
 
     return view('add-plan-form', ['employees' => UserEmployee::all()]);
-
-    return view('university-dashboard');
-
 });
 Route::post('plan', [PlanController::class, 'store']);
 Route::get('plan/{plan}', [PlanController::class, 'destroy']);
