@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use App\Models\UserEmployee;
 use Illuminate\Http\Request;
 
 class PlanController extends Controller
@@ -16,6 +17,14 @@ class PlanController extends Controller
         Plan::create($attributes);
 
         return redirect('/');
+    }
+
+    public function edit(Plan $plan)
+    {
+        return view('plan.edit', [
+            'employees' => UserEmployee::all(),
+            'plan' => $plan
+        ]);
     }
 
     protected function validatePlan()

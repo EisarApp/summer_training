@@ -20,7 +20,7 @@ class UserCompany extends Model
     //users to user_trainee
     public function inforamtion()
     {
-        $this->hasOne('Users', 'user_id');
+        return $this->hasOne(User::class, 'id');
     }
 
     public function region()
@@ -30,6 +30,6 @@ class UserCompany extends Model
 
     public function city()
     {
-        $this->hasOne('City', 'city_id');
+        return $this->hasOne(City::class, 'id');
     }
 }
