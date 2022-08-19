@@ -1,9 +1,10 @@
 <div>
-    dd({{$userType}});
     
     <form wire:submit.prevent="submit" novalidate="" action=""
         class=" w-auto lg:w-[50rem] container flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+        @csrf
         <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-100">
+
             
             <div class="space-y-2 col-span-full lg:col-span-1">
                 <p class="font-medium">الجهة التعليمية</p>
@@ -17,6 +18,7 @@
                 <x-form.input label="الجوال" name="mobile" />
                 <x-form.input label="كلمة المرور" name="password" type="password" />
                 <x-form.input label="تأكيد كلمة المرور" name="confirmPassword" type="password" />
+
                 <x-form.form-dropdown label="الجنس" name="gender">
                     <option selected disabled>اختر الجنس</option>
                     <option value="f">أنثى</option>
