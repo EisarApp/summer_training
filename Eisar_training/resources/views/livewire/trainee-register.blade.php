@@ -72,14 +72,14 @@
 
                 <x-form.input label="التخصص" name="major" />
                 <x-form.input label="الرقم الجامعي" name="studentNumber" />
-                <x-form.input label="سنة التخرج" name="trainingHours" />
+                <x-form.input label="سنة التخرج" name="graduation_year" />
                 <x-form.field />
                 <x-form.form-dropdown label="نوع المعدل" name="gpa_type">
                     <option selected disabled>اختر نوع المعدل</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </x-form.form-dropdown>
-                <x-form.input label="المعدل" name="studentNumber" />
+                <x-form.input label="المعدل" name="gpa" />
                 <x-form.input label="ساعات التدريب" name="trainingHours" />
                 <x-form.form-dropdown label="فترة التدريب" name="training_date">
                     <option selected disabled>اختر فترة التدريب</option>
@@ -87,15 +87,6 @@
                     <option value="secondsemester">Secondsemester</option>
                     <option value="thirdsemester">Thirdsemester</option>
                 </x-form.form-dropdown>
-
-
-                <x-form.field>
-                    <x-form.label label="خطاب التدريب" name="trainingLetter" />
-                    <div class="flex">
-                        <input type="file" name="trainingLetter" id="files"
-                            class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
-                    </div>
-                </x-form.field>
 
                 <x-form.field>
                     <x-form.label label="السجل الأكاديمي" name="academic_transaction" />
@@ -168,7 +159,7 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </x-form.form-dropdown>
-                <x-form.input label="المعدل" name="studentNumber" />
+                <x-form.input label="المعدل" name="gpa" />
                 <x-form.input label="ساعات التدريب" name="trainingHours" />
                 <x-form.form-dropdown label="فترة التدريب" name="training_date">
                     <option selected disabled>اختر فترة التدريب</option>
