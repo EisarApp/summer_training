@@ -11,6 +11,10 @@ use App\Models\Department;
 
 class CompanyRegister extends Component
 {
+    //parameter 
+    public $userType;
+
+    
     // Form properties
     public $firstName;
     public $lastName;

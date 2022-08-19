@@ -9,9 +9,11 @@ use App\Models\Region;
 use App\Models\University;
 use App\Models\Department;
 
-
 class TraineeRegister extends Component
 {
+    //parameter 
+    public $userType;
+
     // Form properties
     public $firstName;
     public $lastName;
@@ -59,13 +61,13 @@ class TraineeRegister extends Component
         }
         if (!empty($this->university)) {
             $this->departments = Department::where('university_id', $this->university)->get();
-        } 
-        
+        }
+
         $regions = Region::orderBy('name')->get();
         $universities = University::orderBy('name')->get();
         return view('livewire.trainee-register')->with([
             'regions' => $regions,
-            'universities'=>$universities,
+            'universities' => $universities,
         ]);
     }
 }

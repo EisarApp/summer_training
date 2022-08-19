@@ -1,4 +1,6 @@
 <div>
+    dd({{$userType}});
+    
     <form wire:submit.prevent="submit" novalidate="" action=""
         class=" w-auto lg:w-[50rem] container flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
         <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-100">

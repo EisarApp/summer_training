@@ -10,7 +10,7 @@ use App\Models\Department;
 
 class UniversityRegister extends Component
 {
-    //Model Binding
+    //parameter 
     public $userType;
 
     // Form properties
@@ -25,14 +25,12 @@ class UniversityRegister extends Component
     public $universityId;
     public $departmentId;
 
-
     //drop-down properties uni-dep
     public $university;
     public $departments = [];
     public $department;
 
     
-
     private $validationRules = [
 
         'firstName' => ['required', 'min:3'],

@@ -14,11 +14,11 @@
         
 
         @if($userType == "طالب")
-        <livewire:trainee-register />
+        <livewire:trainee-register userType="1" />
         @elseif($userType == "جهة تعليمية")
-        <livewire:university-register />
+        <livewire:university-register userType="2" />
         @elseif($userType == "جهة تدريب")
-        <livewire:company-register />
+        <livewire:company-register userType="3" />
         @endif
 
     </section>
