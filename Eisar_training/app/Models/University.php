@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class University extends Model 
 {
 
+    protected $guarded = ['id'];
+
     protected $table = 'universites';
     public $timestamps = true;
 

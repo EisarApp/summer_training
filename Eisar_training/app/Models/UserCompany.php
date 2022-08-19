@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserCompany extends Model 
 {
+    protected $guarded = ['id'];
 
     protected $table = 'user_companies';
     public $timestamps = true;

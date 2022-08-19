@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserType extends Model 
 {
+    protected $guarded = ['id'];
 
     protected $table = 'user_types';
     public $timestamps = true;

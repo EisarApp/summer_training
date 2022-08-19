@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class UserAcademic extends Model 
 {
 
-    protected $guarded = [];
+    protected $guarded = ['id', 'user_id'];
 
 
     protected $table = 'user_academics';

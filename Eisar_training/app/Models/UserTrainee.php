@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class UserTrainee extends Model 
 {
 
+    protected $guarded = ['id', 'user_id'];
+    
     protected $table = 'user_trainees';
     public $timestamps = true;
 

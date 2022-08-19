@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Model 
 {
 
-    protected $guarded = [];
+    protected $guarded = ['id', 'is_active'];
     
     protected $table = 'users';
     public $timestamps = true;
