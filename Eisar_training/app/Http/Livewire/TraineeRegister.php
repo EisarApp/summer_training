@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use App\Models\City;
+use App\Models\UserTrainee;
 use App\Models\Region;
 use App\Models\University;
 use App\Models\Department;
@@ -23,7 +24,17 @@ class TraineeRegister extends Component
     public $confirmPassword;
     public $gender;
     public $mobile;
-
+    public $major;
+    public $studentNumber;
+    public $gpa_type;
+    public $gpa;
+    public $graduation_year;
+    public $trainingHours;
+    public $training_date;
+    public $academic_transaction;
+    public $cv;
+    public $graduation_certificate;
+    public $academic_degree;
 
     //drop-down properties region-city
     public $region;
@@ -35,23 +46,39 @@ class TraineeRegister extends Component
     public $departments = [];
     public $department;
 
-
-
-
     //Model Binding
     public $traineeType;
 
-    // private $validationRules = [
-    //     1 => [
-    //         'firstName' => ['required', 'min:3'],
-    //         'lastName' => ['required', 'min:3'],
-    //         'email' => ['required', 'email', 'unique:users,email'],
-    //     ],
-    //     2 => [
-    //         'password' => ['required', 'string', 'min:8'],
-    //         'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
-    //     ],
-    // ];
+    public function submit()
+    {
+        $user_uni = User::create([
+            'name' => "{$this->firstName} {$this->lastName}",
+            'type_id' => $this->userType,
+            'email' => $this->email,
+            'password' => bcrypt($this->password),
+            'gender' => $this->gender,
+            'mobile' => $this->mobile,
+            'is_active' => 1,
+        ]);
+        UserTrainee::create([
+            'user_id' => $user_uni->id,
+            'region_id' => $this->region,
+            'city_id' => $this->city,
+            'university_id' => $this->university,
+            'department_id' => $this->department,
+            'student_number' => $this->studentNumber,
+            'gpa' => $this->gpa,
+            'gpa_type' => $this->gpa_type,
+            'training_date' => $this->training_date,
+            'training_hours' => $this->trainingHours,
+            'graduation_year' => $this->graduation_year,
+            'academic_degree' => $this->academic_degree,
+            'graduation_certificate' => $this->graduation_certificate,
+            'academic_transaction' => $this->academic_transaction,
+            'cv' => $this->cv,
+            'is_graduate' => $this->traineeType,
+        ]);
+    }
 
     public function render()
     {
