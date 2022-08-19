@@ -1,7 +1,15 @@
 <div>
-    dd({{$userType}});
     <form wire:submit.prevent="submit" novalidate="" action=""
         class=" w-auto lg:w-[50rem] container flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+        @csrf
+
+        @if ($errors->isNotEmpty())
+        <div class="text-sm bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Oops!</strong>
+            <span class="block sm:inline">There are some errors with your submission.</span>
+        </div>
+        @endif
+        
         <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-100">
             <div class="space-y-2 col-span-full lg:col-span-1">
                 <p class="font-medium">جهة التدريب</p>

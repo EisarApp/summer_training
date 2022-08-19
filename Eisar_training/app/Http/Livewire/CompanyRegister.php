@@ -14,7 +14,6 @@ class CompanyRegister extends Component
     //parameter 
     public $userType;
 
-    
     // Form properties
     public $firstName;
     public $lastName;
@@ -36,23 +35,22 @@ class CompanyRegister extends Component
     public $departments = [];
     public $department;
 
+    private $validationRules = [
+        'firstName' => ['required', 'min:3'],
+        'lastName' => ['required', 'min:3'],
+        'email' => ['required', 'email', 'unique:users,email'],
+        'password' => ['required', 'string', 'min:8'],
+        'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
+        'gender' => ['required'],
+        'mobile' => ['required', 'min:10'],
 
+    ];
 
-
-    //Model Binding
-    public $trainerType;
-
-    // private $validationRules = [
-    //     1 => [
-    //         'firstName' => ['required', 'min:3'],
-    //         'lastName' => ['required', 'min:3'],
-    //         'email' => ['required', 'email', 'unique:users,email'],
-    //     ],
-    //     2 => [
-    //         'password' => ['required', 'string', 'min:8'],
-    //         'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
-    //     ],
-    // ];
+    
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, $this->validationRules);
+    }
 
 
     public function render()

@@ -22,8 +22,7 @@ class UniversityRegister extends Component
     public $confirmPassword;
     public $gender;
     public $mobile;
-    // public $university;
-    // public $department;
+
 
     //drop-down properties uni-dep
     public $university;
@@ -31,27 +30,44 @@ class UniversityRegister extends Component
     public $department;
 
 
+    private $validationRules = [
+        'firstName' => ['required', 'min:3'],
+        'lastName' => ['required', 'min:3'],
+        'email' => ['required', 'email', 'unique:users,email'],
+        'password' => ['required', 'string', 'min:8'],
+        'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
+        'gender' => ['required'],
+        'mobile' => ['required', 'min:10'],
+        'university' => ['required'],
+        'department' => ['required'],
+
+
+    ];
+
+    
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, $this->validationRules);
+    }
 
     public function submit()
     {
+        $this->validate($this->validationRules);
 
-
-        $user_uni=User::create([
+        $user_uni = User::create([
             'name' => "{$this->firstName} {$this->lastName}",
             'type_id' => $this->userType,
             'email' => $this->email,
             'password' => bcrypt($this->password),
             'gender' => $this->gender,
             'mobile' => $this->mobile,
-            'is_active'=>1,
+            'is_active' => 1,
         ]);
         UserAcademic::create([
-            'user_id' =>$user_uni->id,
+            'user_id' => $user_uni->id,
             'university_id' => $this->university,
             'department_id' => $this->department,
         ]);
-
-
     }
 
     public function render()
