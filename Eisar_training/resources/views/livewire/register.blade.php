@@ -11,6 +11,7 @@
             <x-form.user-type value="جهة تدريب" class="px-4" />
 
         </div>
+        
 
         @if($userType == "طالب")
         <livewire:trainee-register />

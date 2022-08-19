@@ -10,6 +10,9 @@ use App\Models\Department;
 
 class UniversityRegister extends Component
 {
+    //Model Binding
+    public $userType;
+
     // Form properties
     public $firstName;
     public $lastName;
@@ -28,8 +31,7 @@ class UniversityRegister extends Component
     public $departments = [];
     public $department;
 
-    //Model Binding
-    public $type;
+    
 
     private $validationRules = [
 
@@ -48,27 +50,29 @@ class UniversityRegister extends Component
 
     public function submit()
     {
-        $rules = collect($this->validationRules)->collapse()->toArray();
+        // $rules = collect($this->validationRules)->collapse()->toArray();
 
-        $this->validate($rules);
+        // $this->validate($rules);
 
-
-        User::create([
+        $user_uni=User::create([
             'name' => "{$this->firstName} {$this->lastName}",
-            'type_id' => $this->type_id,
+            'type_id' => 1,
             'email' => $this->email,
             'password' => bcrypt($this->password),
             'gender' => $this->gender,
             'mobile' => $this->mobile,
+            'is_active'=>1,
         ]);
         UserAcademic::create([
-            'user_id' => User::foreignId('id'),
-            'university_id' => $this->universityId,
-            'department_id' => $this->departmentId,
+            'user_id' =>$user_uni->id,
+            'university_id' => $this->university,
+            'department_id' =>1 ,
         ]);
 
-        $this->reset();
-        $this->resetValidation();
+
+
+        // $this->reset();
+        // $this->resetValidation();
     }
 
     public function render()

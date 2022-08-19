@@ -14,7 +14,7 @@
 <body>
 
     <livewire:register />
-
+    
     @livewireScripts
 </body>
 
