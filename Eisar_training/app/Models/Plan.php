@@ -28,6 +28,7 @@ class Plan extends Model
     ];
 
     public $timestamps = true;
+    protected $with = ['supervisedBy'];
 
     use SoftDeletes;
     use HasFactory;
@@ -38,12 +39,18 @@ class Plan extends Model
     {
         $this->hasOne('User', 'created_by');
     }
-    public function supervisedBy()
-    {
-        $this->hasOne('User', 'supervisor_id');
-    }
+
     public function certificate()
     {
         $this->hasOne('Certificate', 'certificate_id');
+    }
+
+    public function supervisedBy()
+    {
+        return $this->belongsTo(UserEmployee::class, 'supervisor_id');
+    }
+
+    public function company(){
+        return $this->belongsTo(UserEmployee::class, 'company_id');
     }
 }

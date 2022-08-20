@@ -32,20 +32,23 @@
                             قائمة الفرص
                         </x-navbar-item>
 
-                        <x-navbar-item link='#'>
-                            طلبات التدريب
-                        </x-navbar-item>
-
-
-                        <x-navbar-item link='#'>
-                            لوحة التحكم
-                        </x-navbar-item>
-
                         @auth
+                            <x-navbar-item link='#'>
+                                طلبات التدريب
+                            </x-navbar-item>
+
+
+                            <x-navbar-item link='#'>
+                                لوحة التحكم
+                            </x-navbar-item>
+
+                        @endauth
+
+                        @guest
                             <x-navbar-item link='#'>
                                 انشاء حساب
                             </x-navbar-item>
-                        @endauth
+                        @endguest
 
                     </div>
                 </div>

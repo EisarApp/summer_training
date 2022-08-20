@@ -1,9 +1,13 @@
 <?php
 
+use App\Models\City;
 use App\Models\Plan;
+use App\Models\UserCompany;
 use App\Models\UserEmployee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\TrainingRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +20,18 @@ use App\Http\Controllers\PlanController;
 |
 */
 
-Route::get('/', function () {
 
-    return view('plan', ['plans' => Plan::all()]);
-});
+Route::get('/', [PublicController::class, 'index']);
+Route::get('companies/{company:id}', [PublicController::class, 'show']);
+Route::get('/plans/{plan:id}', [TrainingRequestController::class, 'create']);
 
-Route::get('plan/create', function () {
+//instead of admin .. what? user type?
+Route::get('admin/{company:id}/plans', [PlanController::class, 'index']);
+Route::get('/{plan:id}/edit', [PlanController::class, 'edit']);
+Route::patch('/{plan:id}', [PlanController::class, 'update']);
+Route::get('admin/{company:id}/plans/create', [PlanController::class, 'create']);
+Route::post('admin/{company:id}/plans', [PlanController::class, 'store']);
 
-    return view('add-plan-form', ['employees' => UserEmployee::all()]);
-});
-Route::post('plan', [PlanController::class, 'store']);
+//plan.index
+//plan.show
+//student-dashboard

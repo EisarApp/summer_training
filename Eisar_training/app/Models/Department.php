@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Department extends Model 
+class Department extends Model
 {
 
     protected $table = 'departments';
@@ -15,4 +15,8 @@ class Department extends Model
 
     protected $dates = ['deleted_at'];
 
+    public function departmentCrew()
+    {
+        return $this->hasMany(User::class, 'department_id', 'id');
+    }
 }

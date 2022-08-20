@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
     <!-- if the user is auth -->
     <div class="grid grid-cols-5">
         <x-student.student-side-menu />
@@ -39,12 +38,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
 </body>
 
 </html>

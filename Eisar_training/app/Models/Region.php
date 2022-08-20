@@ -15,4 +15,13 @@ class Region extends Model
 
     protected $dates = ['deleted_at'];
 
+    public function residents()
+    {
+        return $this->hasMany(User::class, 'region_id','id');
+    }
+
+    public function cities()
+    {
+        return $this->hasMany(City::class, 'city_id','id');
+    }
 }

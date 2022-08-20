@@ -17,20 +17,19 @@ class UserTrainee extends Model
 
     protected $dates = ['deleted_at'];
 
-    //users to user_trainee
-    public function inforamtion()
+    public function information()
     {
-        $this->hasOne('Users', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function region()
     {
-        $this->hasOne('Region', 'region_id');
+        return $this->hasOne('Region', 'region_id');
     }
 
     public function city()
     {
-        $this->hasOne('City', 'city_id');
+        return $this->hasOne('City', 'city_id');
     }
 
     public function university()

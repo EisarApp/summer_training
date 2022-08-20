@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\University;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UserAcademic extends Model
 {
@@ -17,19 +18,18 @@ class UserAcademic extends Model
 
     protected $dates = ['deleted_at'];
 
-    //users to user_trainee
-    public function inforamtion()
+    public function information()
     {
-        $this->hasOne('Users', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function university()
     {
-        $this->hasOne('University', 'university_id');
+        return $this->belongsTo(University::class, 'university_id');
     }
 
     public function department()
     {
-        $this->hasOne('Department', 'department_id');
+        return $this->belongsTo(Department::class, 'department_id');
     }
 }

@@ -19,7 +19,7 @@ class UserEmployeeFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'company_id' => 1,
+            'company_id' => 2,
             'department' => 'management',
             'job_title' => 'trainer',
             'nationality' => 'saudi',

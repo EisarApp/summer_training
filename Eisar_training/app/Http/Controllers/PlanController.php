@@ -3,42 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use App\Models\UserCompany;
 use App\Models\UserEmployee;
 use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
-    public function store()
+    public function index(UserCompany $company)
     {
+        return view('companyPlan.index', ['plans' => Plan::all()->where('company_id', $company->id)]);
+    }
 
+    public function create(UserCompany $company)
+    {
+        return view('companyPlan.create', [
+            'employees' => UserEmployee::all()->where('company_id', $company->id),
+            'company' => $company
+        ]);
+    }
+
+    public function store(UserCompany $company)
+    {
         $attributes = $this->validatePlan();
-
-
         Plan::create($attributes);
-
-        return redirect('/');
+        return redirect("admin/$company->id/plans");
     }
 
     public function edit(Plan $plan)
     {
-        return view('plan.edit', [
-            'employees' => UserEmployee::all(),
+        return view('companyPlan.edit', [
+            'employees' => UserEmployee::all()->where('company_id', $plan->company_id),
             'plan' => $plan
         ]);
     }
 
     public function update(Plan $plan)
     {
-
         $attributes = $this->validatePlan();
-
         $plan->update($attributes);
-
-        return redirect('/');
+        return redirect("admin/$plan->company_id/plans");
     }
 
     protected function validatePlan()
     {
+        request()->merge([
+            'require_training_letter' => request()->get('require_training_letter') == null ? 0 : 1,
+            'require_national_id' =>  request()->get('require_national_id') == null ? 0 : 1
+        ]);
 
         return request()->validate([
             'name' => 'required',
@@ -54,7 +65,7 @@ class PlanController extends Controller
             'students_number' => 'required',
             'ending_date' => 'required',
             'require_training_letter' => 'required',
-            'require_national_id' => 'required',
+            'require_national_id' => 'required'
         ]);
     }
 }

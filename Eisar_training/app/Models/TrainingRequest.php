@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\UserTrainee;
 
 class TrainingRequest extends Model
 {
@@ -19,11 +20,11 @@ class TrainingRequest extends Model
 
     public function trainee()
     {
-        $this->belongsTo('Users', 'user_id');
+        return $this->belongsTo(UserTrainee::class, 'user_id');
     }
 
-    public function createBy()
+    public function createdBy()
     {
-        $this->belongsTo('Users', 'created_by');
+        return $this->belongsTo(User::class, 'created_by');
     }
 }

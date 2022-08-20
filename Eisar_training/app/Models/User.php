@@ -26,4 +26,16 @@ class User extends Model
     {
         return $this->hasOne(UserEmployee::class, 'user_id', 'id');
     }
+    public function userAcademic()
+    {
+        return $this->hasOne(UserAcademic::class, 'user_id', 'id');
+    }
+    public function userCompany()
+    {
+        return $this->hasOne(UserCompany::class, 'user_id', 'id');
+    }
+    public function userTrainee()
+    {
+        return $this->hasOne(UserTrainee::class, 'user_id', 'id');
+    }
 }
