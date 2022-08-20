@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="submit" novalidate="" action=""
+    <form wire:submit.prevent="submit" novalidate=""
         class=" w-auto lg:w-[50rem] container flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
         @csrf
 
@@ -35,7 +35,7 @@
 
                 <!--  dropdown university and department -->
                 <x-form.form-dropdown label="الجامعة" name="university">
-                    <option selected >اختر الجامعة</option>
+                    <option selected>اختر الجامعة</option>
                     @foreach($universities as $university)
                     <option value={{ $university ->id }}>{{ $university ->name }}</option>
                     @endforeach
@@ -43,7 +43,7 @@
 
                 @if(count($departments) > 0)
                 <x-form.form-dropdown label="الكلية" name="department">
-                    <option selected >اختر الكلية</option>
+                    <option selected>اختر الكلية</option>
                     @foreach($departments as $department)
                     <option value={{ $department ->id }}>{{ $department ->name }}</option>
                     @endforeach
@@ -52,8 +52,8 @@
                 <x-form.field />
                 @endif
 
-                <div class="flex items-center justify-between px-4 py-10 text-right sm:px-6">
-                    <x-form.button type="submit" color="indigo" text="Submit" />
+                <div class=" flex items-center justify-between mt-16 text-right">
+                    <x-form.button type="submit" color="blue" text="Submit" />
                 </div>
             </div>
 

@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="submit" novalidate="" action=""
+    <form wire:submit.prevent="submit" novalidate=""
         class=" w-auto lg:w-[50rem] container flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
         @csrf
 
@@ -12,8 +12,8 @@
         
         <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-100">
             <div class="space-y-2 col-span-full lg:col-span-1">
-                <p class="font-medium">المعلومات الشخصية</p>
-                <p class="text-xs">أدخل المعلومات الشخصية للبدء.</p>
+                <p class="font-medium">جهة الطالب</p>
+                <p class="text-xs">ادخال بيانات الطالب</p>
             </div>
             <div class="grid grid-cols-4 gap-4 col-span-full lg:col-span-3">
                 <x-form.input label="الاسم الأول" name="firstName" />
@@ -22,8 +22,6 @@
                 <x-form.input label="الجوال" name="mobile" />
                 <x-form.input label="كلمة المرور" name="password" type="password" />
                 <x-form.input label="تأكيد كلمة المرور" name="confirmPassword" type="password" />
-                {{--
-                <x-form.field /> --}}
 
                 <!--  dropdown region and city -->
                 <x-form.form-dropdown label="المنطقة" name="region">
@@ -72,7 +70,13 @@
 
                 <x-form.input label="التخصص" name="major" />
                 <x-form.input label="سنة التخرج" name="graduation_year" />
-                <x-form.field />
+                <x-form.form-dropdown label="فترة التدريب" name="training_date">
+                    <option selected disabled>اختر فترة التدريب</option>
+                    <option value="firstsemester">Firstsemester</option>
+                    <option value="secondsemester">Secondsemester</option>
+                    <option value="thirdsemester">Thirdsemester</option>
+                </x-form.form-dropdown>
+
 
                 <x-form.form-dropdown label="نوع المعدل" name="gpa_type">
                     <option selected disabled>اختر نوع المعدل</option>
@@ -84,7 +88,7 @@
                 <x-form.field>
                     <x-form.label label="السجل الأكاديمي" name="academic_transaction" />
                     <div class="flex">
-                        <input type="file" name="academic_transaction" id="files"
+                        <input type="file" name="academic_transaction" id="academic_transaction"
                             class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
                 </x-form.field>
@@ -92,42 +96,35 @@
                 <x-form.field>
                     <x-form.label label="السيرة الذاتية" name="cv" />
                     <div class="flex">
-                        <input type="file" name="cv" id="files"
-                            class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"/>
+                        <input type="file" name="cv" id="cv"
+                            class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
                 </x-form.field>
 
                 @if(! $traineeType)
-                <div class="flex py-3 ">
-                    <x-form.trainee-type value="طالب" class="px-2" />
-                    <x-form.trainee-type value="خريج" class="px-4" />
-                </div>
+                    <div class="flex py-3 col-span-4 sm:col-span-4">
+                        <label class="ml-4">هل أنت طالب أم خريج؟</label>
+                        <x-form.trainee-type id="default-radio-1" value="طالب" class="px-2" />
+                        <x-form.trainee-type id="default-radio-2" value="خريج" class="px-2" />
+                    </div>
                 @endif
 
                 @if($traineeType == "طالب")
 
                 <x-form.input label="الرقم الجامعي" name="studentNumber" />
-                {{--<x-form.field /> --}}
                 <x-form.input label="ساعات التدريب" name="trainingHours" />
-                <x-form.form-dropdown label="فترة التدريب" name="training_date">
-                    <option selected disabled>اختر فترة التدريب</option>
-                    <option value="firstsemester">Firstsemester</option>
-                    <option value="secondsemester">Secondsemester</option>
-                    <option value="thirdsemester">Thirdsemester</option>
-                </x-form.form-dropdown>
 
                 <x-form.field>
-                    <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
-                        <x-form.button type="submit" color="indigo" text="Submit" />
+                    <div class=" flex items-center justify-between mt-16 text-right">
+                        <x-form.button type="submit" color="blue" text="Submit" />
                     </div>
                 </x-form.field>
 
                 @elseif($traineeType == "خريج")
-
                 <x-form.field>
                     <x-form.label label="وثيقة التخرج" name="graduation_certificate" />
                     <div class="flex">
-                        <input type="file" name="graduation_certificate" id="files"
+                        <input type="file" name="graduation_certificate" id="graduation_certificate"
                             class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
                 </x-form.field>
@@ -137,11 +134,10 @@
                 
 
                 <x-form.field>
-                    <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">
-                        <x-form.button type="submit" color="indigo" text="Submit" />
+                    <div class=" flex items-center justify-between mt-16 text-right">
+                        <x-form.button type="submit" color="blue" text="Submit" />
                     </div>
                 </x-form.field>
-
                 @endif
             </div>
         </fieldset>
