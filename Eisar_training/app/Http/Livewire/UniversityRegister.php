@@ -7,9 +7,12 @@ use App\Models\User;
 use App\Models\UserAcademic;
 use App\Models\University;
 use App\Models\Department;
+use Livewire\WithFileUploads;
 
 class UniversityRegister extends Component
 {
+    use WithFileUploads;
+
     //parameter 
     public $userType;
 
@@ -37,8 +40,8 @@ class UniversityRegister extends Component
         'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
         'gender' => ['required'],
         'mobile' => ['required', 'min:10'],
-        'university' => ['required'],
-        'department' => ['required'],
+        'university' => ['required', 'not_in:none'],
+        'department' => ['required', 'not_in:none'],
     ];
 
     public function updated($propertyName)
@@ -64,6 +67,8 @@ class UniversityRegister extends Component
             'university_id' => $this->university,
             'department_id' => $this->department,
         ]);
+        $this->reset();
+        $this->resetValidation();
     }
 
     public function render()

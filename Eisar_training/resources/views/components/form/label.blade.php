@@ -1,5 +1,5 @@
 @props(['label' => "", 'name'=>""])
 
-<label class="text-sm" for="{{ $name }}">
+<label class="text-md" for="{{ $name }}">
     {{ $label }}
 </label>

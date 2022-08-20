@@ -6,12 +6,13 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\City;
 use App\Models\Region;
-use App\Models\University;
-use App\Models\Department;
 use App\Models\UserCompany;
+use Livewire\WithFileUploads;
+
 
 class CompanyRegister extends Component
 {
+    use WithFileUploads;
     //parameter 
     public $userType;
 
@@ -43,15 +44,15 @@ class CompanyRegister extends Component
         'email' => ['required', 'email', 'unique:users,email'],
         'password' => ['required', 'string', 'min:8'],
         'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
-        'gender' => ['required'],
+        'gender' => ['required', 'in:f,m'],
         'mobile' => ['required', 'min:10'],
         'logo' => ['required'],
         'header' => ['required'],
         'description' => ['required'],
         'domain' => ['required'],
         'facility_size' => ['required'],
-        'region' => ['required'],
-        'city' => ['required'],
+        'region' => ['required','not_in:none'],
+        'city' => ['required', 'not_in:none'],
     ];
 
     
@@ -64,7 +65,6 @@ class CompanyRegister extends Component
     {
         $this->validate($this->validationRules);
 
-
         $user_company=User::create([
             'name' => "{$this->firstName} {$this->lastName}",
             'type_id' => $this->userType,
@@ -76,14 +76,16 @@ class CompanyRegister extends Component
         ]);
         UserCompany::create([
             'user_id' =>$user_company->id,
-            'logo' => $this->logo,
-            'header' => $this->header,
+            'logo' => $this->logo->store('files', 'public'),
+            'header' => $this->header->store('files', 'public'),
             'description' => $this->description,
             'domain' => $this->domain,
             'city_id' => $this->city,
             'region_id' => $this->region,
             'facility_size' => $this->facility_size,
         ]);
+        $this->reset();
+        $this->resetValidation();
     }
 
     public function render()

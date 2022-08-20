@@ -8,13 +8,13 @@
             class="w-auto lg:w-[50rem] container flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid rounded-md shadow-sm bg-gray-100 mt-16">
             <ul class="grid gap-6 md:grid-cols-3 place-items-center justify-center max-auto mt-4 mb-4 mr-4 ml-4">
                 <x-form.user-type
-                    class="grid place-items-center p-4 w-full text-white bg-red-500 rounded-lg cursor-pointer peer-checked:text-white hover:text-white hover:bg-red-400box-border h-16 w-48 p-4"
+                    class="grid place-items-center p-4 w-full text-white bg-red-500 rounded-lg cursor-pointer peer-checked:text-white hover:text-white hover:bg-red-400 box-border h-16 w-48 p-4 dark:peer-checked:text-red-400 border peer-checked:border-red-400 peer-checked:text-red-400 peer-checked:bg-white"
                     id="default-radio-1" value="جهة تعليمية" />
                 <x-form.user-type
-                    class="grid place-items-center p-4 w-full text-white bg-orange-400 rounded-lg cursor-pointer peer-checked:text-white hover:text-white hover:bg-orange-300 box-border h-16 w-48 p-4"
+                    class="grid place-items-center p-4 w-full text-white bg-orange-400 rounded-lg cursor-pointer peer-checked:text-white hover:text-white hover:bg-orange-300 box-border h-16 w-48 p-4 dark:peer-checked:text-orange-300 border peer-checked:border-orange-300 peer-checked:text-orange-300 peer-checked:bg-white"
                     id="default-radio-2" value="طالب" />
                 <x-form.user-type
-                    class="grid place-items-center p-4 w-full text-white bg-emerald-400 rounded-lg cursor-pointer peer-checked:text-white hover:text-white hover:bg-emerald-300 box-border h-16 w-48 p-4"
+                    class="grid place-items-center p-4 w-full text-white bg-emerald-400 rounded-lg cursor-pointer peer-checked:text-white hover:text-white hover:bg-emerald-300 box-border h-16 w-48 p-4 dark:peer-checked:text-emerald-300 border peer-checked:border-emerald-300 peer-checked:text-emerald-300 peer-checked:bg-white"
                     id="default-radio-3" value="جهة تدريب" />
             </ul>
         </fieldset>

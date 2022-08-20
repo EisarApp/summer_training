@@ -4,15 +4,13 @@
         @csrf
 
         @if ($errors->isNotEmpty())
-        <div class="text-sm bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-            <strong class="font-bold">Oops!</strong>
-            <span class="block sm:inline">There are some errors with your submission.</span>
+        <div class="text-sm bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">أوووه!</strong>
+            <span class="block sm:inline">هنالك بعض الأخطاء.</span>
         </div>
         @endif
 
         <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-100">
-
-
             <div class="space-y-2 col-span-full lg:col-span-1">
                 <p class="font-medium">الجهة التعليمية</p>
                 <p class="text-xs">ادخال بيانات الجهة التعليمية</p>
@@ -35,7 +33,7 @@
 
                 <!--  dropdown university and department -->
                 <x-form.form-dropdown label="الجامعة" name="university">
-                    <option selected>اختر الجامعة</option>
+                    <option selected value="none">اختر الجامعة</option>
                     @foreach($universities as $university)
                     <option value={{ $university ->id }}>{{ $university ->name }}</option>
                     @endforeach
@@ -43,7 +41,7 @@
 
                 @if(count($departments) > 0)
                 <x-form.form-dropdown label="الكلية" name="department">
-                    <option selected>اختر الكلية</option>
+                    <option selected value="none">اختر الكلية</option>
                     @foreach($departments as $department)
                     <option value={{ $department ->id }}>{{ $department ->name }}</option>
                     @endforeach
@@ -52,9 +50,11 @@
                 <x-form.field />
                 @endif
 
-                <div class=" flex items-center justify-between mt-16 text-right">
-                    <x-form.button type="submit" color="blue" text="Submit" />
-                </div>
+                <x-form.field>
+                    <div class=" flex items-center justify-between text-right">
+                        <x-form.button type="submit" color="blue" text="إنشاء الحساب" />
+                    </div>
+                </x-form.field>
             </div>
 
         </fieldset>

@@ -9,9 +9,12 @@ use App\Models\UserTrainee;
 use App\Models\Region;
 use App\Models\University;
 use App\Models\Department;
+use Livewire\WithFileUploads;
 
 class TraineeRegister extends Component
 {
+    use WithFileUploads;
+
     //parameter 
     public $userType;
 
@@ -55,24 +58,23 @@ class TraineeRegister extends Component
         'email' => ['required', 'email', 'unique:users,email'],
         'password' => ['required', 'string', 'min:8'],
         'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
-        'gender' => ['required'],
+        'gender' => ['required', 'in:f,m'],
         'mobile' => ['required', 'min:10'],
         'major' => ['required'],
         'studentNumber' => ['required'],
-        'studentNumber' => ['required'],
-        'gpa_type' => ['required'],
+        'gpa_type' => ['required', 'in:4,5'],
         'gpa' => ['required'],
         'graduation_year' => ['required'],
         'trainingHours' => ['required'],
-        'training_date' => ['required'],
+        'training_date' => ['required', 'in:firstsemester,secondsemester,thirdsemester,summersemester'],
         'academic_transaction' => ['required'],
         'cv' => ['required'],
         'graduation_certificate' => ['required'],
-        'academic_degree' => ['required'],
-        'region' => ['required'],
-        'city' => ['required'],
-        'university' => ['required'],
-        'department' => ['required'],
+        'academic_degree' => ['required', 'in:bachelor,diploma'],
+        'region' => ['required', 'not_in:none'],
+        'city' => ['required', 'not_in:none'],
+        'university' => ['required', 'not_in:none'],
+        'department' => ['required', 'not_in:none'],
     ];
 
     public function updated($propertyName)
@@ -81,9 +83,8 @@ class TraineeRegister extends Component
     }
 
     public function submit()
-    {
+    {        
         $this->validate($this->validationRules);
-
         $user_uni = User::create([
             'name' => "{$this->firstName} {$this->lastName}",
             'type_id' => $this->userType,
@@ -99,6 +100,7 @@ class TraineeRegister extends Component
             'city_id' => $this->city,
             'university_id' => $this->university,
             'department_id' => $this->department,
+            'major' => $this->major,
             'student_number' => $this->studentNumber,
             'gpa' => $this->gpa,
             'gpa_type' => $this->gpa_type,
@@ -106,11 +108,13 @@ class TraineeRegister extends Component
             'training_hours' => $this->trainingHours,
             'graduation_year' => $this->graduation_year,
             'academic_degree' => $this->academic_degree,
-            'graduation_certificate' => $this->graduation_certificate,
-            'academic_transaction' => $this->academic_transaction,
-            'cv' => $this->cv,
+            'graduation_certificate' => $this->graduation_certificate->store('files', 'public'),
+            'academic_transaction' => $this->academic_transaction->store('files', 'public'),
+            'cv' => $this->cv->store('files', 'public'),
             'is_graduate' => $this->traineeType,
         ]);
+        $this->reset();
+        $this->resetValidation();
     }
 
     public function render()
