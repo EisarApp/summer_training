@@ -45,7 +45,13 @@ class CompanyRegister extends Component
         'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
         'gender' => ['required'],
         'mobile' => ['required', 'min:10'],
-
+        'logo' => ['required'],
+        'header' => ['required'],
+        'description' => ['required'],
+        'domain' => ['required'],
+        'facility_size' => ['required'],
+        'region' => ['required'],
+        'city' => ['required'],
     ];
 
     
@@ -56,7 +62,10 @@ class CompanyRegister extends Component
 
     public function submit()
     {
-        $user_uni=User::create([
+        $this->validate($this->validationRules);
+
+
+        $user_company=User::create([
             'name' => "{$this->firstName} {$this->lastName}",
             'type_id' => $this->userType,
             'email' => $this->email,
@@ -64,11 +73,9 @@ class CompanyRegister extends Component
             'gender' => $this->gender,
             'mobile' => $this->mobile,
             'is_active'=>1,
-            'university_id' => $this->universityId,
-            'department_id' => $this->departmentId,
         ]);
         UserCompany::create([
-            'user_id' =>$user_uni->id,
+            'user_id' =>$user_company->id,
             'logo' => $this->logo,
             'header' => $this->header,
             'description' => $this->description,

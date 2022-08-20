@@ -1,8 +1,15 @@
 <div>
-    dd({{$userType}});
-
     <form wire:submit.prevent="submit" novalidate="" action=""
         class=" w-auto lg:w-[50rem] container flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+        @csrf
+
+        @if ($errors->isNotEmpty())
+        <div class="text-sm bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Oops!</strong>
+            <span class="block sm:inline">There are some errors with your submission.</span>
+        </div>
+        @endif
+        
         <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-100">
             <div class="space-y-2 col-span-full lg:col-span-1">
                 <p class="font-medium">المعلومات الشخصية</p>
@@ -86,7 +93,7 @@
                     <x-form.label label="السيرة الذاتية" name="cv" />
                     <div class="flex">
                         <input type="file" name="cv" id="files"
-                            class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
+                            class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"/>
                     </div>
                 </x-form.field>
 
@@ -100,8 +107,7 @@
                 @if($traineeType == "طالب")
 
                 <x-form.input label="الرقم الجامعي" name="studentNumber" />
-                {{--
-                <x-form.field /> --}}
+                {{--<x-form.field /> --}}
                 <x-form.input label="ساعات التدريب" name="trainingHours" />
                 <x-form.form-dropdown label="فترة التدريب" name="training_date">
                     <option selected disabled>اختر فترة التدريب</option>
@@ -125,6 +131,10 @@
                             class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
                 </x-form.field>
+
+
+
+                
 
                 <x-form.field>
                     <div class=" flex items-center justify-between px-4 py-10 text-right sm:px-6">

@@ -49,8 +49,41 @@ class TraineeRegister extends Component
     //Model Binding
     public $traineeType;
 
+    private $validationRules = [
+        'firstName' => ['required', 'min:3'],
+        'lastName' => ['required', 'min:3'],
+        'email' => ['required', 'email', 'unique:users,email'],
+        'password' => ['required', 'string', 'min:8'],
+        'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
+        'gender' => ['required'],
+        'mobile' => ['required', 'min:10'],
+        'major' => ['required'],
+        'studentNumber' => ['required'],
+        'studentNumber' => ['required'],
+        'gpa_type' => ['required'],
+        'gpa' => ['required'],
+        'graduation_year' => ['required'],
+        'trainingHours' => ['required'],
+        'training_date' => ['required'],
+        'academic_transaction' => ['required'],
+        'cv' => ['required'],
+        'graduation_certificate' => ['required'],
+        'academic_degree' => ['required'],
+        'region' => ['required'],
+        'city' => ['required'],
+        'university' => ['required'],
+        'department' => ['required'],
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, $this->validationRules);
+    }
+
     public function submit()
     {
+        $this->validate($this->validationRules);
+
         $user_uni = User::create([
             'name' => "{$this->firstName} {$this->lastName}",
             'type_id' => $this->userType,

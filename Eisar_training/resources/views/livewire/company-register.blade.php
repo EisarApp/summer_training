@@ -9,7 +9,7 @@
             <span class="block sm:inline">There are some errors with your submission.</span>
         </div>
         @endif
-        
+
         <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-100">
             <div class="space-y-2 col-span-full lg:col-span-1">
                 <p class="font-medium">جهة التدريب</p>
@@ -30,6 +30,7 @@
                 </x-form.form-dropdown>
                 <x-form.field />
 
+            
                 <!--  dropdown region and city -->
                 <x-form.form-dropdown label="المنطقة" name="region">
                     <option selected disabled>اختر المنطقة</option>
@@ -51,21 +52,28 @@
                         <input type="file" name="logo" id="files"
                             class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
+                    @error($logo)
+                    <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
+                    @enderror
                 </x-form.field>
 
                 <x-form.field>
                     <x-form.label label="الترويسة" name="header" />
                     <div class="flex">
-                        <input type="file" name="header" id="files"
-                            class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
+                        <input type="file" name="header" id="files" class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
+                    @error($header)
+                    <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
+                    @enderror
                 </x-form.field>
 
                 <x-form.field>
                     <x-form.label label="الوصف" name="description" />
                     <textarea class="border border-gray-200 p-2 w-full rounded" name="description">
 
-                    </textarea>
+                    </textarea>@error($description)
+                    <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
+                    @enderror
                 </x-form.field>
 
                 <x-form.input label="الموقع" name="domain" type="url" />

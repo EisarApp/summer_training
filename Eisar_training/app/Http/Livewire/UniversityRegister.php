@@ -29,7 +29,6 @@ class UniversityRegister extends Component
     public $departments = [];
     public $department;
 
-
     private $validationRules = [
         'firstName' => ['required', 'min:3'],
         'lastName' => ['required', 'min:3'],
@@ -40,11 +39,8 @@ class UniversityRegister extends Component
         'mobile' => ['required', 'min:10'],
         'university' => ['required'],
         'department' => ['required'],
-
-
     ];
 
-    
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName, $this->validationRules);
