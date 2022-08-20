@@ -31,7 +31,3 @@ Route::get('/{plan:id}/edit', [PlanController::class, 'edit']);
 Route::patch('/{plan:id}', [PlanController::class, 'update']);
 Route::get('admin/{company:id}/plans/create', [PlanController::class, 'create']);
 Route::post('admin/{company:id}/plans', [PlanController::class, 'store']);
-
-//plan.index
-//plan.show
-//student-dashboard

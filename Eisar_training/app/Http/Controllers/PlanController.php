@@ -6,6 +6,7 @@ use App\Models\Plan;
 use App\Models\UserCompany;
 use App\Models\UserEmployee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PlanController extends Controller
 {
@@ -67,5 +68,12 @@ class PlanController extends Controller
             'require_training_letter' => 'required',
             'require_national_id' => 'required'
         ]);
+    }
+
+    public function destroy(Plan $plan)
+    {
+        
+        $plan->delete();
+        return back();
     }
 }
