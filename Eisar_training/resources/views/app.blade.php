@@ -13,8 +13,9 @@
 
 <body>
 
-    <livewire:register />
     
+    {{-- <livewire:register /> --}}
+    <livewire:sign-in />
     @livewireScripts
 </body>
 

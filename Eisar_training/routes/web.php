@@ -15,3 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app');
 });
+Route::get('/sign-in', function () {
+    return view('sign-in');
+});
+Route::get('/home', function () {
+    return view('home');
+});
