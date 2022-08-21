@@ -69,6 +69,8 @@ class UniversityRegister extends Component
         ]);
         $this->reset();
         $this->resetValidation();
+        return redirect('/');
+
     }
 
     public function render()

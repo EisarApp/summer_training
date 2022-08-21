@@ -51,6 +51,6 @@ class Plan extends Model
     }
 
     public function company(){
-        return $this->belongsTo(UserEmployee::class, 'company_id');
+        return $this->belongsTo(UserCompany::class, 'company_id');
     }
 }

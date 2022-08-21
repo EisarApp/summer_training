@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SignIn extends Component
 {
@@ -17,8 +18,15 @@ class SignIn extends Component
             'password' => 'required',
         ]);
 
-        Auth::attempt(['email' => $this->email, 'password' => $this->password]);
-        return redirect('/home');
+
+        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+            throw ValidationException::withMessages([
+                'email' => 'unvalid email or password'
+            ]);
+        }
+
+        session()->regenerate();
+        return redirect('/');
     }
     public function render()
     {

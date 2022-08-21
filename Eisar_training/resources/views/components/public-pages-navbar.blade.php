@@ -22,8 +22,10 @@
             {{-- main menu --}}
             <div class=" flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex-shrink-0 flex items-center ml-6">
-                    <img class="block lg:hidden h-6 w-auto" src="\storage\images\eisar-logo.svg" alt="Workflow">
-                    <img class="hidden lg:block h-8 w-auto" src="\storage\images\eisar-logo.svg" alt="Workflow">
+                    <a href="/"><img class="block lg:hidden h-6 w-auto" src="\storage\images\eisar-logo.svg"
+                            alt="Workflow"></a>
+                    <a href="/"><img class="hidden lg:block h-8 w-auto" src="\storage\images\eisar-logo.svg"
+                            alt="Workflow"></a>
                 </div>
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex ">
@@ -32,20 +34,23 @@
                             قائمة الفرص
                         </x-navbar-item>
 
-                        @auth
+                        @can('trainee')
                             <x-navbar-item link='#'>
                                 طلبات التدريب
                             </x-navbar-item>
+                        @endcan
 
-
-                            <x-navbar-item link='#'>
+                        @auth
+                            <x-navbar-item link='/dashboard'>
                                 لوحة التحكم
                             </x-navbar-item>
-
                         @endauth
 
                         @guest
-                            <x-navbar-item link='#'>
+                            <x-navbar-item link='/login'>
+                                تسجيل الدخول
+                            </x-navbar-item>
+                            <x-navbar-item link='/register'>
                                 انشاء حساب
                             </x-navbar-item>
                         @endguest
@@ -57,7 +62,9 @@
 
             <div class="absolute inset-y-0 left-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {{-- Profile dropdown --}}
-                <x-profile-dropdown />
+                @auth
+                    <x-profile-dropdown />
+                @endauth
 
             </div>
         </div>

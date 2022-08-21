@@ -69,7 +69,7 @@ class TraineeRegister extends Component
         'training_date' => ['required', 'in:firstsemester,secondsemester,thirdsemester,summersemester'],
         'academic_transaction' => ['required'],
         'cv' => ['required'],
-        'graduation_certificate' => ['required'],
+        'graduation_certificate' => ['required_if:traineeType,==,2'],
         'academic_degree' => ['required', 'in:bachelor,diploma'],
         'region' => ['required', 'not_in:none'],
         'city' => ['required', 'not_in:none'],
@@ -83,7 +83,8 @@ class TraineeRegister extends Component
     }
 
     public function submit()
-    {        
+    {
+        // ddd($this);
         $this->validate($this->validationRules);
         $user_uni = User::create([
             'name' => "{$this->firstName} {$this->lastName}",
@@ -111,15 +112,24 @@ class TraineeRegister extends Component
             'graduation_certificate' => $this->check(),
             'academic_transaction' => $this->academic_transaction->store('files', 'public'),
             'cv' => $this->cv->store('files', 'public'),
-            'is_graduate' => $this->traineeType,
+            'is_graduate' => $this->traineeType
         ]);
         $this->reset();
         $this->resetValidation();
+        return redirect('/');
+
     }
     public function check()
     {
-        if($this->traineeType==2){
+        if ($this->traineeType == 2) {
             return $this->graduation_certificate->store('files', 'public');
+        }
+    }
+
+    public function checkValidation()
+    {
+        if ($this->traineeType == 2) {
+            return ['required'];
         }
     }
 

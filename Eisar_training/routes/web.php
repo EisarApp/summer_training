@@ -20,9 +20,16 @@ use App\Http\Controllers\TrainingRequestController;
 |
 */
 
-Route::get('/app', function () {
-    return view('app');
+Route::get('register', function () {
+    return view('register');
 });
+Route::get('login', function () {
+    return view('login');
+});
+Route::get('dashboard', function () {
+    return view('dashboard');
+});
+
 // Route::get('/sign-in', function () {
 //     return view('sign-in');
 // });
@@ -41,4 +48,4 @@ Route::get('/{plan:id}/edit', [PlanController::class, 'edit']);
 Route::patch('/{plan:id}', [PlanController::class, 'update']);
 Route::get('admin/{company:id}/plans/create', [PlanController::class, 'create']);
 Route::post('admin/{company:id}/plans', [PlanController::class, 'store']);
-Route::delete('admin/{company:id}/plans/{plan}', [PlanController::class, 'delete']);
+Route::delete('/{plan:id}', [PlanController::class, 'delete']);

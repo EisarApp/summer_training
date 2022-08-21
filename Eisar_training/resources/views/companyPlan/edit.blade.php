@@ -17,9 +17,9 @@
                 @enderror
             </div>
 
-            <input type="hidden" name="created_by" id="created_by" value="1">
+            <input type="hidden" name="created_by" id="created_by" value="{{ $plan->created_by }}">
 
-            <input type="hidden" name="company_id" id="company_id" value="1">
+            <input type="hidden" name="company_id" id="company_id" value="{{ $plan->company->id }}">
 
             <div>
                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">

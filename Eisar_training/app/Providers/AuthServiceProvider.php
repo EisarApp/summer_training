@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -30,25 +31,23 @@ class AuthServiceProvider extends ServiceProvider
 
         /* define a admin user role */
         Gate::define('university', function ($user) {
-            return $user->user_type == 'university';
+            return $user->type_id == 2;
         });
 
         Gate::define('company', function ($user) {
-            return $user->user_type == 'company';
+            return $user->type_id == 3;
         });
 
         Gate::define('trainee', function ($user) {
-            return $user->user_type == 'trainee';
+            return $user->type_id == 1;
         });
 
         Gate::define('academic', function ($user) {
-            return $user->user_type == 'academic';
+            return $user->type_id == 0;
         });
 
-        Gate::define('employee', function($user) {
-            return $user->user_type == 'employee';
-         });
-
-         
+        Gate::define('employee', function ($user) {
+            return $user->type_id == 0;
+        });
     }
 }

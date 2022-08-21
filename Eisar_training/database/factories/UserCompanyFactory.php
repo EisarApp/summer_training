@@ -23,7 +23,7 @@ class UserCompanyFactory extends Factory
             'header' => fake()->sentence(),
             'description' => fake()->sentence(),
             'domain' => fake()->word(),
-            'city_id' => 2,
+            'city_id' => 1,
             'region_id' => 1,
             'facility_size' => 12,
             'created_at' => now(),

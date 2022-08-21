@@ -16,7 +16,11 @@
             id="user-menu-item-0">الملف الشخصي</a></x-dropdown-item>
     <x-dropdown-item><a href="#" class="block px-4 py-2 text-sm text-red-400" role="menuitem" tabindex="-1"
             id="user-menu-item-1">الإعدادات</a></x-dropdown-item>
-    <x-dropdown-item> <a href="#" class="block px-4 py-2 text-sm text-red-400" role="menuitem" tabindex="-1"
-            id="user-menu-item-2">تسجيل الخروج</a></x-dropdown-item>
+    <x-dropdown-item>
+        @livewireStyles
+        <livewire:log-out />
+        @livewireScripts
+
+    </x-dropdown-item>
 
 </x-dropdown>

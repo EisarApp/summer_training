@@ -47,7 +47,7 @@
                                     </path>
                                 </svg>
                             </a>
-                            <form method="POST" action="/admin/{{$plan->company_id}}/plans/{{ $plan->id }}">
+                            <form method="POST" action="/{{ $plan->id }}">
                                 @csrf
                                 @method('DELETE')
                                 <button

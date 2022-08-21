@@ -23,7 +23,7 @@ class PlanFactory extends Factory
             'name' => fake()->name(),
             'created_by' => UserEmployee::factory(),
             'supervisor_id' => UserEmployee::factory(),
-            'company_id' => 1,
+            'company_id' => 5,
             'description' => $this->faker->paragraph,
             'department' => 'management',
             'training_type' => 'summer',
