@@ -20,15 +20,15 @@ use App\Http\Controllers\TrainingRequestController;
 |
 */
 
-/* Route::get('/', function () {
+Route::get('/app', function () {
     return view('app');
 });
-Route::get('/sign-in', function () {
-    return view('sign-in');
-});
-Route::get('/home', function () {
-    return view('home');
-}); */
+// Route::get('/sign-in', function () {
+//     return view('sign-in');
+// });
+// Route::get('/home', function () {
+//     return view('home');
+// }); 
 
 
 Route::get('/', [PublicController::class, 'index']);
