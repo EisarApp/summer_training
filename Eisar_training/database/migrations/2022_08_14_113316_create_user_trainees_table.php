@@ -15,7 +15,7 @@ class CreateUserTraineesTable extends Migration {
 			$table->integer('university_id')->unsigned();
 			$table->integer('department_id')->unsigned();
 			$table->string('major', 150);
-			$table->bigInteger('student_number');
+			$table->bigInteger('student_number')->nullable();
 			$table->float('gpa');
 			$table->enum('gpa_type', array('4', '5'));
 			$table->enum('training_date', array('firstsemester', 'secondsemester', 'thirdsemester', 'summersemester'))->nullable();

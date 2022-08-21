@@ -3,12 +3,12 @@
         class=" w-auto lg:w-[50rem] container flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
         @csrf
 
-        {{-- @if ($errors->isNotEmpty())
+        @if ($errors->isNotEmpty())
         <div class="text-sm bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">أوووه!</strong>
             <span class="block sm:inline">هنالك بعض الأخطاء.</span>
         </div>
-        @endif --}}
+        @endif
 
         <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-100">
             <div class="space-y-2 col-span-full lg:col-span-1">
@@ -100,9 +100,9 @@
                             id="academic_transaction"
                             class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
-                    {{-- @error("academic_transaction")
+                    @error("academic_transaction")
                     <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
-                    @enderror --}}
+                    @enderror
                 </x-form.field>
 
                 <x-form.field>
@@ -111,20 +111,20 @@
                         <input type="file" wire:model="cv" name="cv" id="cv"
                             class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
-                    {{-- @error("cv")
+                    @error("cv")
                     <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
-                    @enderror --}}
+                    @enderror
                 </x-form.field>
 
                 @if(! $traineeType)
                 <div class="flex py-3 col-span-4 sm:col-span-4">
                     <label class="ml-4">هل أنت طالب أم خريج؟</label>
-                    <x-form.trainee-type id="default-radio-1" value="طالب" class="px-2" />
-                    <x-form.trainee-type id="default-radio-2" value="خريج" class="px-2" />
+                    <x-form.trainee-type id="default-radio-1" value=1 text="طالب" class="px-2" />
+                    <x-form.trainee-type id="default-radio-2" value=2 text="متخرج" class="px-2" />
                 </div>
                 @endif
 
-                @if($traineeType == "طالب")
+                @if($traineeType == 1)
 
                 <x-form.input label="الرقم الجامعي" name="studentNumber" />
                 <x-form.input label="ساعات التدريب" name="trainingHours" />
@@ -135,7 +135,7 @@
                     </div>
                 </x-form.field>
 
-                @elseif($traineeType == "خريج")
+                @elseif($traineeType == 2)
                 <x-form.field>
                     <x-form.label label="وثيقة التخرج" name="graduation_certificate" />
                     <div class="flex">
@@ -143,9 +143,9 @@
                             id="graduation_certificate"
                             class="px-8 py-12 border-2 border-dashed rounded-md dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
                     </div>
-                    {{-- @error("graduation_certificate")
+                    @error("graduation_certificate")
                     <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
-                    @enderror --}}
+                    @enderror
                 </x-form.field>
 
                 <x-form.field />

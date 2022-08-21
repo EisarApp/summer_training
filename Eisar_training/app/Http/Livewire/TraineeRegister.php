@@ -108,13 +108,19 @@ class TraineeRegister extends Component
             'training_hours' => $this->trainingHours,
             'graduation_year' => $this->graduation_year,
             'academic_degree' => $this->academic_degree,
-            'graduation_certificate' => $this->graduation_certificate->store('files', 'public'),
+            'graduation_certificate' => $this->check(),
             'academic_transaction' => $this->academic_transaction->store('files', 'public'),
             'cv' => $this->cv->store('files', 'public'),
             'is_graduate' => $this->traineeType,
         ]);
         $this->reset();
         $this->resetValidation();
+    }
+    public function check()
+    {
+        if($this->traineeType==2){
+            return $this->graduation_certificate->store('files', 'public');
+        }
     }
 
     public function render()
