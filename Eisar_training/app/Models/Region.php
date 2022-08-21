@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Region extends Model 
 {
 
+    protected $guarded = ['id'];
     protected $table = 'regions';
     public $timestamps = true;
 

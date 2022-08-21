@@ -20,6 +20,16 @@ use App\Http\Controllers\TrainingRequestController;
 |
 */
 
+/* Route::get('/', function () {
+    return view('app');
+});
+Route::get('/sign-in', function () {
+    return view('sign-in');
+});
+Route::get('/home', function () {
+    return view('home');
+}); */
+
 
 Route::get('/', [PublicController::class, 'index']);
 Route::get('companies/{company:id}', [PublicController::class, 'show']);
@@ -31,3 +41,4 @@ Route::get('/{plan:id}/edit', [PlanController::class, 'edit']);
 Route::patch('/{plan:id}', [PlanController::class, 'update']);
 Route::get('admin/{company:id}/plans/create', [PlanController::class, 'create']);
 Route::post('admin/{company:id}/plans', [PlanController::class, 'store']);
+

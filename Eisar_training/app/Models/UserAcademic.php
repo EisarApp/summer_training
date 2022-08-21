@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class UserAcademic extends Model
 {
 
+    protected $guarded = ['id'];
+
+
     protected $table = 'user_academics';
     public $timestamps = true;
 
