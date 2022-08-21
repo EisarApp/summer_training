@@ -9,7 +9,7 @@ class CreateUserCompaniesTable extends Migration {
 	{
 		Schema::create('user_companies', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('logo', 200);
+			$table->integer('user_id')->unsigned();
 			$table->string('header', 200);
 			$table->text('description');
 			$table->string('domain', 150);

@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration {
 			$table->enum('gender', array('f', 'm'));
 			$table->bigInteger('mobile')->unsigned();
 			$table->tinyInteger('is_active')->unsigned()->default('1');
+			$table->string('profile_picture', 200)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
