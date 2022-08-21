@@ -70,9 +70,9 @@ class PlanController extends Controller
         ]);
     }
 
-    public function destroy(Plan $plan)
+    public function delete($plan_id)
     {
-        
+        $plan = Plan::where('id', $plan_id);
         $plan->delete();
         return back();
     }
