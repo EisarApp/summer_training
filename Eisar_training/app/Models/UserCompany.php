@@ -12,7 +12,7 @@ class UserCompany extends Model
 
     protected $table = 'user_companies';
     public $timestamps = true;
-    protected $with = ['information', 'city'];
+    protected $with = ['information', 'city','region'];
 
     use SoftDeletes;
     use HasFactory;
@@ -26,7 +26,7 @@ class UserCompany extends Model
 
     public function region()
     {
-        $this->belongsTo(Region::class, 'region_id');
+        return $this->belongsTo(Region::class, 'region_id');
     }
 
     public function city()

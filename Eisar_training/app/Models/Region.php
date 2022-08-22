@@ -18,7 +18,7 @@ class Region extends Model
 
     public function residents()
     {
-        return $this->hasMany(User::class, 'region_id','id');
+        return $this->hasMany(UserCompany::class, 'region_id','id');
     }
 
     public function cities()
