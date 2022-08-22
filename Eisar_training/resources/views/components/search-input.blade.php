@@ -1,3 +1,4 @@
+<form method="GET">
 <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
     <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
         <path
@@ -6,4 +7,9 @@
     </svg>
 </span>
 <input placeholder="{{$slot}}"
-    class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+    class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" 
+    name="search"
+    value="{{ request('search') }}"
+    />
+
+    </form>

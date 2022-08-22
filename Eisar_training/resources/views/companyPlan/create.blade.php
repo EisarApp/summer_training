@@ -17,7 +17,7 @@
                 @enderror
             </div>
 
-            <input type="hidden" name="created_by" id="created_by" value="4">
+            <input type="hidden" name="created_by" id="created_by" value="{{auth()->user()->id}}">
 
             <input type="hidden" name="company_id" id="company_id" value="{{ $company->id }}">
 

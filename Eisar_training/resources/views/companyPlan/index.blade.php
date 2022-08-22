@@ -10,6 +10,8 @@
             <div class="my-2 flex sm:flex-row flex-col">
                 <div class="block relative">
                     {{-- filtter input if exite --}}
+                    {{-- will be removed --}}
+                    <x-search-input> ابحث باسم الخطة </x-search-input>
                 </div>
             </div>
             <x-table :headers="['اسم الخطة', ' القسم المسؤول', ' الية التدريب', 'عدد الطلاب', 'نوع التدريب', ' ']">
@@ -67,9 +69,10 @@
                     </tr>
                 @endforeach
             </x-table>
+       
             @can('company')
             <div>
-                <a href="/admin/{{ $plan->company_id }}/plans/create"
+                <a href="/admin/{{ $company->id }}/plans/create"
                     class=" text-center float-left mb-2 w-64 px-6 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
                     خطة</a>
             </div>

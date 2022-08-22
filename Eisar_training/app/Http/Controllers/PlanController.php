@@ -12,7 +12,18 @@ class PlanController extends Controller
 {
     public function index(UserCompany $company)
     {
-        return view('companyPlan.index', ['plans' => Plan::all()->where('company_id', $company->id)]);
+        return view('companyPlan.index', [
+            'plans' => Plan::latest()->filter(request(['search']))->get(),
+            'company'=>$company
+           
+        ]);
+    }
+
+    public function show(UserCompany $company)
+    {
+        return view('companyPlan.index', ['plans' => Plan::all()->where('company_id', $company->id)
+   
+    ]);
     }
 
     public function create(UserCompany $company)
