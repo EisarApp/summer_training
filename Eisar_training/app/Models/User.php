@@ -20,7 +20,7 @@ class User extends Authenticatable
     use HasFactory;
 
     protected $dates = ['deleted_at'];
-protected $with = ['userEmployee','userAcademic','userCompany','userTrainee'];
+
     public function type()
     {
         return $this->hasOne('User', 'type_id', 'id');
