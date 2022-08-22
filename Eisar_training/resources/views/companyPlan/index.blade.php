@@ -36,7 +36,7 @@
                         <x-table-data>
                             {{ $plan->training_type }}
                         </x-table-data>
-
+                        @can('company')
                         <x-table-data>
                             <a href="/{{ $plan->id }}/edit"
                                 class=" items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-500 focus:outline-none focus:shadow-outline-gray"
@@ -63,14 +63,17 @@
                                 </button>
                             </form>
                         </x-table-data>
+                        @endcan
                     </tr>
                 @endforeach
             </x-table>
+            @can('company')
             <div>
                 <a href="/admin/{{ $plan->company_id }}/plans/create"
                     class=" text-center float-left mb-2 w-64 px-6 py-2.5 bg-indigo-900 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-indigo-800 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">إضافة
                     خطة</a>
             </div>
+            @endcan
         </div>
     </div>
 </body>

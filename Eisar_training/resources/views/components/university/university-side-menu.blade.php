@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="hover:bg-gradient-to-r from-blue-200 to-blue-900  px-4 duration-300">
-                    <a href="#">
+                    <a href="students">
                         <div
                             class="p-2.5 mt-2 flex items-center cursor-pointer   hover:text-white dark:hover:text-white ">
                             <iconify-icon icon="fluent:list-24-filled"></iconify-icon>
