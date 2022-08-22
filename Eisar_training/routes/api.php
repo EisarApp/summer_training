@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\CompanyController;
+use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function () {
-    Route::apiResource('company', CompanyController::class);
-    Route::apiResource('trainee', CompanyController::class);
-    Route::apiResource('academic', CompanyController::class);
-    Route::apiResource('employee', CompanyController::class);
-    Route::apiResource('plan', CompanyController::class);
-});
+Route::apiResource('user', UserController::class);
+Route::apiResource('company', CompanyController::class);
