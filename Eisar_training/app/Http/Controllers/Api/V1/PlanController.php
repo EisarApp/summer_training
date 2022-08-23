@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 
 class PlanController extends BaseController
 {
-    public function index($id = null)
+    public function index(Request $request)
     {
-        if ($id != null) {
-            $plans = Plan::all()->where('company_id', $id);
+        if ($request->company_id != null) {
+            $plans = Plan::all()->where('company_id', $request->company_id);
         } else {
             $plans = Plan::all();
         }
