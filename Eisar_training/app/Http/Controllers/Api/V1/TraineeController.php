@@ -10,9 +10,14 @@ use App\Http\Resources\V1\TraineeResource;
 
 class TraineeController extends BaseController
 {
-    public function index()
+    public function index($major=null)
     {
-        $trainees = UserTrainee::all();
+        if($major!=null){
+            $trainees = UserTrainee::all()->where('major',$major);
+        }
+        else{
+         $trainees = UserTrainee::all();   
+        }
         return $this->sendResponse(TraineeResource::collection($trainees), 'Trainees retrieved successfully.');
     }
 
