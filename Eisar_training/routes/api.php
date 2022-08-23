@@ -34,5 +34,6 @@ Route::middleware('auth:sanctum', 'abilities:company')->get('/company/{company:i
 Route::middleware('auth:sanctum', 'abilities:academic')->get('/academic', [AcademicController::class, 'index']);
 Route::middleware('auth:sanctum', 'abilities:academic')->get('/academic/{academic:id}', [AcademicController::class, 'show']);
 
+Route::post('/trainee', [TraineeController::class, 'store']);
 // Route::apiResource('trainee/{major?}', TraineeController::class);
 // Route::apiResource('plan/{id?}', PlanController::class);
