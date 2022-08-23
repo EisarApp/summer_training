@@ -41,11 +41,11 @@ return [
             'provider' => 'users',
         ],
         'academic' => [
-            'driver' => 'sanctum',
+            'driver' => 'session',
             'provider' => 'academic',
-        ], 
+        ],
         'company' => [
-            'driver' => 'sanctum',
+            'driver' => 'session',
             'provider' => 'company',
         ],
 
@@ -76,10 +76,12 @@ return [
         'academic' => [
             'driver' => 'eloquent',
             'model' => App\Models\UserAcademic::class,
+            'table' => 'user_academics',
         ],
         'company' => [
             'driver' => 'eloquent',
             'model' => App\Models\UserCompany::class,
+            'model' => 'user_companies',
         ],
         // 'users' => [
         //     'driver' => 'database',

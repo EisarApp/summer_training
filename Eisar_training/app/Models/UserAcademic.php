@@ -6,17 +6,20 @@ use App\Models\University;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 
-class UserAcademic extends Model
+class UserAcademic extends Authenticatable
 {
 
     protected $guarded = ['id'];
-
+    protected $guard = ['academic'];
 
     protected $table = 'user_academics';
     public $timestamps = true;
 
-    use SoftDeletes;
+    use SoftDeletes, Notifiable;
     use HasFactory;
 
     protected $dates = ['deleted_at'];

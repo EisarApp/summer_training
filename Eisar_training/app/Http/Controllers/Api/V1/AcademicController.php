@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\User;
 use App\Models\UserAcademic;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\V1\AcademicResource;
 
@@ -25,16 +24,16 @@ class AcademicController extends BaseController
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'firstName' => ['required', 'min:3'],
-            'lastName' => ['required', 'min:3'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'string', 'min:8'],
-            'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
-            'gender' => ['required'],
-            'mobile' => ['required', 'min:10'],
-            'university' => ['required', 'not_in:none'],
-            'department' => ['required', 'not_in:none'],
-            'userType' => ['required'],
+            'firstName' => 'required|min:3',
+            'lastName' => 'required|min:3',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8',
+            'confirmPassword' => 'required|string|same:password|min:8',
+            'gender' => 'required',
+            'mobile' => 'required|min:10',
+            'university' => 'required|not_in:none',
+            'department' => 'required|not_in:none',
+            'userType' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -42,7 +41,6 @@ class AcademicController extends BaseController
         }
 
         $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
 
         $user = User::create([
             'name' => $input['firstName'] . ' ' . $input['lastName'],
@@ -53,14 +51,14 @@ class AcademicController extends BaseController
             'mobile' => $input['mobile'],
             'is_active' => 1,
         ]);
-        
+
         UserAcademic::create([
             'user_id' => $user->id,
             'university_id' => $input['university'],
             'department_id' => $input['department'],
         ]);
 
-        $success['token'] =  $user->createToken('academic')->plainTextToken;
+        $success['token'] =  $user->createToken('academic', ['academic'])->plainTextToken;
         $success['name'] =  $user->name;
 
         return $this->sendResponse($success, 'User register successfully.');

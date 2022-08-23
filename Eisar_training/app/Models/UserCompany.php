@@ -4,18 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 
 class UserCompany extends Authenticatable
 {
     protected $guarded = ['id'];
+    protected $guard = ['company'];
 
     protected $table = 'user_companies';
     public $timestamps = true;
     protected $with = ['information', 'city', 'region'];
 
-    use SoftDeletes;
+    use SoftDeletes, Notifiable;
     use HasFactory;
 
     protected $dates = ['deleted_at'];

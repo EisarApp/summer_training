@@ -58,7 +58,7 @@ class TraineeController extends BaseController
         }
 
         $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
+        $input['password'] = bcrypt($request->password);
         $user = UserTrainee::create($input);
         $success['token'] =  $user->createToken('trainee')->plainTextToken;
         $success['name'] =  $user->name;

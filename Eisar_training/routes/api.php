@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\V1\AcademicController;
-use App\Http\Controllers\Api\V1\CompanyController;
-use App\Http\Controllers\Api\V1\PlanController;
-use App\Http\Controllers\Api\V1\TraineeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\PlanController;
+use App\Http\Controllers\Api\V1\LoginController;
+use App\Http\Controllers\Api\V1\CompanyController;
+use App\Http\Controllers\Api\V1\TraineeController;
+use App\Http\Controllers\Api\V1\AcademicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/trainee', [TraineeController::class, 'store']);
-Route::post('/academic', [AcademicController::class, 'store']);
 
-Route::apiResource('academic', AcademicController::class);
-Route::apiResource('trainee/{major?}', TraineeController::class);
-Route::apiResource('plan/{id?}', PlanController::class);
-Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1', 'middleware' => 'auth:sanctum'], function () {
-    Route::apiResource('company', CompanyController::class);
-});
+Route::post('/academic', [AcademicController::class, 'store']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
+
+Route::middleware('auth:sanctum', 'abilities:company')->get('/company', [CompanyController::class, 'index']);
+Route::middleware('auth:sanctum', 'abilities:company')->get('/company/{company:id}', [CompanyController::class, 'show']);
+
+Route::middleware('auth:sanctum', 'abilities:academic')->get('/academic', [AcademicController::class, 'index']);
+Route::middleware('auth:sanctum', 'abilities:academic')->get('/academic/{academic:id}', [AcademicController::class, 'show']);
+
+// Route::apiResource('trainee/{major?}', TraineeController::class);
+// Route::apiResource('plan/{id?}', PlanController::class);
