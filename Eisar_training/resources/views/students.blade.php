@@ -24,7 +24,7 @@
 
             </div>
             <div class="my-2 flex sm:flex-row flex-col">
-                {{-- dropdown input --}}
+                {{-- search input --}}
                 <div class="block relative">
                     <x-search-input>ابحث باسم الطالب</x-search-input>
 
