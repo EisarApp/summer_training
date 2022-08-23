@@ -1,5 +1,5 @@
 <div dir="rtl">
-    <a href="https://www.eisarapp.sa/" aria-label="Back to homepage">
+    <a href="/" aria-label="Back to homepage">
         <img src="/images/logo.svg" alt="Eisar logo" class="w-32 md:w-48 lg:w-48 max-w-4xl mx-auto mt-8">
     </a>
     <form wire:submit.prevent="submit" novalidate=""
@@ -21,7 +21,9 @@
                 <x-form.input label="البريد الالكتروني" name="email" />
                 <x-form.input label="كلمة المرور" name="password" type="password" />
                 <x-form.field>
-                    <span class="">ليس لديك حساب؟ <a href="">أنشئ حسابك</a></span>
+                    <div class="mb-8">
+                        <span>ليس لديك حساب؟ <a href="/register">أنشئ حسابك</a></span>
+                    </div>
                     <div class=" flex items-center justify-between text-right">
                         <x-form.button type="submit" color="blue" text="تسجيل الدخول" />
                     </div>

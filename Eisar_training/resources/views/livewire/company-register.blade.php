@@ -17,8 +17,8 @@
             </div>
             <div class="grid grid-cols-4 gap-4 col-span-full lg:col-span-3">
 
-                <x-form.input label="الاسم الأول" name="firstName" />
-                <x-form.input label="الاسم الأخير" name="lastName" />
+                <x-form.input label="اسم الجهة" name="firstName" />
+                <x-form.input label="حجم المنشأة" name="facility_size" type="number" />
                 <x-form.input label="البريد الالكتروني" name="email" />
                 <x-form.input label="الجوال" name="mobile" />
                 <x-form.input label="كلمة المرور" name="password" type="password" />
@@ -77,10 +77,7 @@
                     <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
                     @enderror
                 </x-form.field>
-
                 <x-form.input label="الموقع" name="domain" type="url" />
-                <x-form.input label="حجم المنشأة" name="facility_size" type="number" />
-                <x-form.field />
                 <x-form.field>
                     <div class=" flex items-center justify-between text-right">
                         <x-form.button type="submit" color="blue" text="إنشاء الحساب" />

@@ -18,7 +18,6 @@ class CompanyRegister extends Component
 
     // Form properties
     public $firstName;
-    public $lastName;
     public $type_id;
     public $email;
     public $password;
@@ -40,7 +39,6 @@ class CompanyRegister extends Component
 
     private $validationRules = [
         'firstName' => ['required', 'min:3'],
-        'lastName' => ['required', 'min:3'],
         'email' => ['required', 'email', 'unique:users,email'],
         'password' => ['required', 'string', 'min:8'],
         'confirmPassword' => ['required', 'string', 'same:password', 'min:8'],
@@ -66,7 +64,7 @@ class CompanyRegister extends Component
         $this->validate($this->validationRules);
 
         $user_company=User::create([
-            'name' => "{$this->firstName} {$this->lastName}",
+            'name' => $this->firstName,
             'type_id' => $this->userType,
             'email' => $this->email,
             'password' => bcrypt($this->password),
