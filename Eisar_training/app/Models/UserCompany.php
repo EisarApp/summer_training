@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class UserCompany extends Model
+class UserCompany extends Authenticatable
 {
     protected $guarded = ['id'];
 
     protected $table = 'user_companies';
     public $timestamps = true;
-    protected $with = ['information', 'city','region'];
+    protected $with = ['information', 'city', 'region'];
 
     use SoftDeletes;
     use HasFactory;

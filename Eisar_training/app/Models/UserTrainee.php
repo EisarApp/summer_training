@@ -16,6 +16,8 @@ class UserTrainee extends Model
 
     use SoftDeletes;
     use HasFactory;
+    // use HasApiTokens;
+
 
     protected $dates = ['deleted_at'];
 
