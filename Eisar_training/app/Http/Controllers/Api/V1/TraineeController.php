@@ -11,10 +11,10 @@ use App\Http\Resources\V1\TraineeResource;
 
 class TraineeController extends BaseController
 {
-    public function index($major=null)
+    public function index(Request $request)
     {
-        if($major!=null){
-            $trainees = UserTrainee::all()->where('major',$major);
+        if($request->major!=null){
+            $trainees = UserTrainee::all()->where('major',$request->major);
         }
         else{
          $trainees = UserTrainee::all();   
