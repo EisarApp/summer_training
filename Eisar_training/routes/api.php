@@ -25,6 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('/academic', [AcademicController::class, 'store']);
+Route::post('/company', [CompanyController::class, 'store']);
+Route::post('/trainee', [TraineeController::class, 'store']);
+
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
 
@@ -34,11 +37,9 @@ Route::middleware('auth:sanctum', 'abilities:company')->get('/company/{company:i
 Route::middleware('auth:sanctum', 'abilities:academic')->get('/academic', [AcademicController::class, 'index']);
 Route::middleware('auth:sanctum', 'abilities:academic')->get('/academic/{academic:id}', [AcademicController::class, 'show']);
 
-
-Route::post('/trainee', [TraineeController::class, 'store']);
-
+Route::middleware('auth:sanctum', 'abilities:trainee')->get('/trainee', [TraineeController::class, 'index']);
+Route::middleware('auth:sanctum', 'abilities:trainee')->get('/trainee/{trainee:id}', [TraineeController::class, 'show']);
 
 
 Route::apiResource('trainee/{major?}', TraineeController::class);
 Route::apiResource('plan/{id?}', PlanController::class);
-
