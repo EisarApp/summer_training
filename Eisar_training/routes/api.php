@@ -41,5 +41,5 @@ Route::middleware('auth:sanctum', 'abilities:trainee')->get('/trainee', [Trainee
 Route::middleware('auth:sanctum', 'abilities:trainee')->get('/trainee/{trainee:id}', [TraineeController::class, 'show']);
 
 
-Route::apiResource('trainee/{major?}', TraineeController::class);
-Route::apiResource('plan/{id?}', PlanController::class);
+// Route::apiResource('trainee/{major?}', TraineeController::class);
+// Route::apiResource('plan/{id?}', PlanController::class);
