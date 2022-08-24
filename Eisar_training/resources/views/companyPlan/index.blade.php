@@ -22,7 +22,7 @@
                                 </svg>
 
                                 نوع التدريب
-
+                
                             </button>
                         </x-slot>
                         <x-dropdown-item href="/admin/{{$company->id}}/plans">
@@ -32,7 +32,7 @@
                         <x-dropdown-item href="/admin/{{$company->id}}/plans/?training_type=summer">
                             summer
                         </x-dropdown-item>
-
+                            
                         <x-dropdown-item href="/admin/{{$company->id}}/plans/?training_type=cooperative ">
                             cooperative
                         </x-dropdown-item>
