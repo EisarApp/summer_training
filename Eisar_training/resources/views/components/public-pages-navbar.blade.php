@@ -47,10 +47,10 @@
                         @endauth
 
                         @guest
-                            <x-navbar-item link='/login'>
+                            <x-navbar-item link='login'>
                                 تسجيل الدخول
                             </x-navbar-item>
-                            <x-navbar-item link='/register'>
+                            <x-navbar-item link='register'>
                                 انشاء حساب
                             </x-navbar-item>
                         @endguest

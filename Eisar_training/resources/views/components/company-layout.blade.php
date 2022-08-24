@@ -1,11 +1,11 @@
 @props(['company'])
 <x-public-pages-layout>
-    <img src="{{ $company->header }}" class="w-full lg:block hidden h-52 absolute top-0 -z-10" alt="Image alt text" />
+    <img src="{{ $company->header }}" class="w-full lg:block hidden h-52 absolute top-0 -z-10" alt=" " />
     <div class="p-0 lg:flex-shrink-0 lg:flex items-center lg:mt-16">
         <div>
             <img src="{{ $company->information->profile_picture }}"
                 class="relative rounded-full lg:w-40 lg:h-40 w-24 h-24 mr-4 border-4 border-white "
-                alt="Image alt text" />
+                alt=" " />
         </div>
         <div class="mr-4 mt-4">
             <h1 class="font-bold text-xl" style="font-size: 1.6rem">{{ $company->information->name }}</h1>
