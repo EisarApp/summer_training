@@ -5,6 +5,7 @@
 </head>
 
 <body class="antialiased font-sans">
+    <x-company.company-dashboard>
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8">
             <div class="my-2 flex sm:flex-row flex-col">
@@ -40,6 +41,7 @@
                     </x-dropdown>
                 </div>
             </div>
+             @if ($plans->count() > 0)
             <x-table :headers="['اسم الخطة', ' القسم المسؤول', ' الية التدريب', 'عدد الطلاب', 'نوع التدريب', ' ']">
                 @foreach ($plans as $plan)
                 <tr>
@@ -102,8 +104,13 @@
                     خطة</a>
             </div>
             @endcan
+
+            @else
+            <p class="text-center">لا يوجد خطط تدريبة</p>
+        @endif
         </div>
     </div>
+    </x-company.company-dashboard>
 </body>
 
 </html>

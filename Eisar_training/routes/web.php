@@ -49,3 +49,7 @@ Route::patch('/{plan:id}', [PlanController::class, 'update']);
 Route::get('admin/{company:id}/plans/create', [PlanController::class, 'create']);
 Route::post('admin/{company:id}/plans', [PlanController::class, 'store']);
 Route::delete('/{plan:id}', [PlanController::class, 'delete']);
+
+ Route::get('/trainingRequest', function () {
+     return view('trainingRequest.show');
+ }); 

@@ -22,8 +22,8 @@
             <x-student.student-navbar class="px-0" /> --}}
             <x-company.company-header />
             <div class="grid grid-cols-2 mt-10">
-                <div>
-
+                <div class="col-span-2">
+                    {{$slot}}
                 </div>
                 <div>
 

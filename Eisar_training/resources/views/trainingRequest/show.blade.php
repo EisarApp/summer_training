@@ -1,12 +1,12 @@
 <html dir="rtl">
 <head>
     <x-head />
-    <x-colors />
+    <x-colors/>
 </head>
 
 
 <body class="antialiased font-sans">
-
+    <x-public-pages-navbar />
 
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8 ">
@@ -21,7 +21,7 @@
             $Users=array('pen'=>'33','jhon'=>'55');
             @endphp
             <x-table
-                :headers="['رقم الطلب ', ' الشركة ', ' المسار ', 'حالة الطلب ', 'تاريخ انتهاء المرحلة الحالية ', ' مقدم الطلب','ملاحظات',' ']">
+                :headers="['رقم الطلب ', ' الشركة ', ' الخطة ', 'حالة الطلب ', ' مقدم الطلب',' ملاحظات',' ']">
                 @foreach($Users as $user=> $data)
 
                 <tr>
@@ -57,24 +57,17 @@
                         {{$data;}}
                     </x-table-data>
 
-                    <x-table-data>
-                        {{$data;}}
-                    </x-table-data>
+                    
 
                     <x-table-data>
                         {{-- the last column --}}
-                        @can('trainee')
                         <div class="my-2 flex sm:flex-row flex-col">
 
                             <div class="inline-flex relative">
                                 <x-table-button>تأكيد الطلب </x-table-button>
                                 <x-table-button> إلغاء الطلب</x-table-button>
-
                             </div>
-
                         </div>
-                        @endcan
-
                     </x-table-data>
                 </tr>
 

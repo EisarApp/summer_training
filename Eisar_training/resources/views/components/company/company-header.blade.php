@@ -9,7 +9,7 @@
 
                         <!-- قائمة الفرص  -->
 
-                        <h1 class="text-gray-800 "> مرحبا بك الشركة </h1>
+                        <h1 class="text-gray-800 ">  مرحبا بك {{auth()->user()->name;}} </h1>
 
                     </div>
                 </div>

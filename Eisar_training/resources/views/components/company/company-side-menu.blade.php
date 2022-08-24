@@ -8,8 +8,8 @@
             p-2 w-[260px] overflow-y-auto text-center bg-gray-100 shadow h-screen overflow-hidden">
             <div class="text-gray-500 text-xl">
                 <div class="p-2.5 mt-1 flex items-center rounded-md">
-                    <h1 class="text-[15px] mb-7 mt-5 md:mr-7 text-xl text-gray-500 font-bold"> <img
-                            src="images\logo.png" alt="">
+                    <h1 class="text-[15px] mb-7 mt-5 md:mr-7 text-xl text-gray-500 font-bold"> <img src="\storage\images\eisar-logo.svg
+                            " alt="">
                     </h1>
                     <i class="bi bi-x ml-20 cursor-pointer lg:hidden" onclick="Openbar()"></i>
                 </div>
@@ -25,9 +25,9 @@
                         </a>
                     </div>
                     <div class="hover:bg-gradient-to-r from-blue-200 to-blue-900  px-4 duration-300">
-                        {{-- @foreach(auth()->user()->userCompany() as $userCompany) --}}
-                        <a href="/admin/{{auth()->user()->userCompany()->id }}/plans">
-{{-- @endforeach --}}
+
+                        <a href="/admin/{{auth()->user()->userCompany->id}}/plans">
+
                             <div
                                 class="p-2.5 mt-2 flex items-center cursor-pointer   hover:text-white dark:hover:text-white ">
                                 <iconify-icon icon="material-symbols:conversion-path"></iconify-icon>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="hover:bg-gradient-to-r from-blue-200 to-blue-900  px-4 duration-300">
-                        <a href="#">
+                        <a href="/employees">
                             <div
                                 class="p-2.5 mt-2 flex items-center cursor-pointer   hover:text-white dark:hover:text-white ">
                                 <iconify-icon icon="clarity:employee-group-line"></iconify-icon>

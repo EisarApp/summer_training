@@ -35,7 +35,7 @@
                         </x-navbar-item>
 
                         @can('trainee')
-                            <x-navbar-item link='#'>
+                            <x-navbar-item link='/trainingRequest'>
                                 طلبات التدريب
                             </x-navbar-item>
                         @endcan
