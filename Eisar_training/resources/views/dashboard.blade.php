@@ -8,4 +8,8 @@
     @can('university')
     <x-university.university-dashboard />
     @endcan
+
+    @can('company')
+    <x-company.company-dashboard />
+    @endcan
 </body>

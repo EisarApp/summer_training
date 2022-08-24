@@ -25,7 +25,9 @@
                         </a>
                     </div>
                     <div class="hover:bg-gradient-to-r from-blue-200 to-blue-900  px-4 duration-300">
-                        <a href="#">
+                        {{-- @foreach(auth()->user()->userCompany() as $userCompany) --}}
+                        <a href="/admin/{{auth()->user()->userCompany()->id }}/plans">
+{{-- @endforeach --}}
                             <div
                                 class="p-2.5 mt-2 flex items-center cursor-pointer   hover:text-white dark:hover:text-white ">
                                 <iconify-icon icon="material-symbols:conversion-path"></iconify-icon>
