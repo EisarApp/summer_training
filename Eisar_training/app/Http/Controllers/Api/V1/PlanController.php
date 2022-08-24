@@ -12,16 +12,17 @@ class PlanController extends BaseController
 {
     public function index(Request $request)
     {
-        if ($request->company_id != null) {
-            $plans = Plan::all()->where('company_id', $request->company_id);
-        } else {
-            $plans = Plan::all();
-        }
-        return $this->sendResponse(PlanResource::collection($plans), 'plans retrieved successfully.');
+        $plans = Plan::where('company_id', $request->company)->get();
+        return $this->sendResponse(new PlanResource($plans), 'plans retrieved successfully.');
     }
 
-    public function show(Plan $plan)
+    // public function show(Plan $plan)
+    // {
+    //     return $this->sendResponse(new PlanResource($plan), 'plan retrieved successfully.');
+    // }
+    public function show(Request $request)
     {
+        $plan = Plan::where('company_id', $request->company)->where('id', $request->plan)->get();
         return $this->sendResponse(new PlanResource($plan), 'plan retrieved successfully.');
     }
 }

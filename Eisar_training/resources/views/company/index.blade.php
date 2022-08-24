@@ -2,33 +2,17 @@
     <div class="max-w-6xl mx-auto flex text-left py-8 px-4">
         <x-dropdown>
             <x-slot name="trigger">
-                <button
-                    class="lg:inline-flex flex py-2 pl-10 w-full text-right lg:w-48 rounded-md border border-gray-300 bg-white shadow-sm text-sm text-gray-700 hover:bg-gray-50">
+                <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
 
-                    <svg class="mr-3 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                        fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-
-                    المجال
-
-                </button>
-            </x-slot>
-            <x-dropdown-item href="/">
-                الكل
-            </x-dropdown-item>
-            @foreach ($companies as $company)
-                <x-dropdown-item
-                    href="/?domain={{ $company->domain }}&{{ http_build_query(request()->except('domain', 'page')) }}">
-                    {{ $company->domain }}
-                </x-dropdown-item>
-            @endforeach
-        </x-dropdown>
-
-        <x-dropdown>
-            <x-slot name="trigger">
+                    <form method="GET" action="#">
+                        @if (request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                        @endif
+                        <input type="text" name="search" placeholder="Find something"
+                            class="bg-transparent placeholder-black font-semibold text-sm"
+                            value="{{ request('search') }}">
+                    </form>
+                </div>
                 <button
                     class="lg:inline-flex flex py-2 pl-10 w-full text-right lg:w-48 rounded-md border border-gray-300 bg-white shadow-sm text-sm text-gray-700 hover:bg-gray-50">
 

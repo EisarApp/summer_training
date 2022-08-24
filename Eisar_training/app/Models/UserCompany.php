@@ -16,7 +16,7 @@ class UserCompany extends Authenticatable
 
     protected $table = 'user_companies';
     public $timestamps = true;
-    protected $with = ['information', 'city', 'region'];
+    protected $with = ['information', 'city', 'region','plans'];
 
     use SoftDeletes, Notifiable;
     use HasFactory;
@@ -50,6 +50,21 @@ class UserCompany extends Authenticatable
 
     public function scopeFilter($query, array $filters)
     {
+        $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $search) =>
+
+            $query->where(
+                fn ($query) =>
+
+                $query->where('domain', 'like', '%' . $search . '%')
+                // ->orWhereHas(
+                //     'information',
+                //     fn ($query) =>
+                //     $query->where('name', $search)
+                // )
+            )
+        );
 
         $query->when(
             $filters['city'] ?? false,

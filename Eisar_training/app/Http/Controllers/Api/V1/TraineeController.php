@@ -13,13 +13,16 @@ class TraineeController extends BaseController
 {
     public function index(Request $request)
     {
-        if($request->major!=null){
-            $trainees = UserTrainee::all()->where('major',$request->major);
-        }
-        else{
-         $trainees = UserTrainee::all();   
+        // if ($request->user()->tokenCan('academic')) {
+        if ($request->major != null) {
+            $trainees = UserTrainee::all()->where('major', $request->major);
+        } else {
+            $trainees = UserTrainee::all();
         }
         return $this->sendResponse(TraineeResource::collection($trainees), 'Trainees retrieved successfully.');
+        // } else {
+        // return $this->sendError('Unauthorised.', ['error' => 'Unauthorised']);
+        // }
     }
 
     public function show(UserTrainee $trainee)
@@ -83,15 +86,15 @@ class TraineeController extends BaseController
             'training_hours' =>  $input['trainingHours'],
             'graduation_year' =>  $input['graduation_year'],
             'academic_degree' => $input['academic_degree'],
-            'graduation_certificate' => $this->check($input['traineeType'],$request),
+            'graduation_certificate' => $this->check($input['traineeType'], $request),
             'academic_transaction' => $request->file('academic_transaction')->store('files', 'public'),
             'cv' => $request->file('cv')->store('files', 'public'),
             'is_graduate' => $input['isGraduate'],
-            
+
         ]);
 
-        
-    
+
+
         $success['token'] =  $user->createToken('trainee', ['trainee'])->plainTextToken;
         $success['name'] =  $user->name;
 
