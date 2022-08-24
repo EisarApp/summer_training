@@ -25,15 +25,18 @@
 
                             </button>
                         </x-slot>
-                        <x-dropdown-item href="/">
+                        <x-dropdown-item href="/admin/{{$company->id}}/plans">
                             الكل
                         </x-dropdown-item>
-                        @foreach ($plans as $plan)
-                        <x-dropdown-item
-                            href="/?training_type={{ $plan->training_type }}">
-                            {{ $plan->training_type }}
+
+                        <x-dropdown-item href="/admin/{{$company->id}}/plans/?training_type=summer">
+                            summer
                         </x-dropdown-item>
-                        @endforeach
+
+                        <x-dropdown-item href="/admin/{{$company->id}}/plans/?training_type=cooperative ">
+                            cooperative
+                        </x-dropdown-item>
+
                     </x-dropdown>
                 </div>
             </div>

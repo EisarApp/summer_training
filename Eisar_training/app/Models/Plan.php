@@ -63,13 +63,9 @@ class Plan extends Model
         );
         $query->when($filters['training_type'] ?? false, fn ($query, $training_type) =>
 
-        $query->whereHas(
-            'training_type',
-            fn ($query) =>
             $query->where('training_type', $training_type)
 
-        )
-    );
+        );
     }
 
     
