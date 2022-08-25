@@ -4,11 +4,13 @@
             <i class="bi bi-filter-right px-2 rounded-md "></i>
         </span>
 
-        <div class="fixed sidebar  top-0 bottom-0 lg:right-0 right-[0px] duration-1000
+        <div
+            class="fixed sidebar  top-0 bottom-0 lg:right-0 right-[0px] duration-1000
             p-2 w-[260px] overflow-y-auto text-center bg-gray-100 shadow h-screen overflow-hidden">
             <div class="text-gray-500 text-xl">
                 <div class="p-2.5 mt-1 flex items-center rounded-md">
-                    <h1 class="text-[15px] mb-7 mt-5 md:mr-7 text-xl text-gray-500 font-bold"> <img src="\storage\images\eisar-logo.svg
+                    <h1 class="text-[15px] mb-7 mt-5 text-xl text-gray-500 font-bold"> <img
+                            src="\storage\images\eisar-logo.svg
                             " alt="">
                     </h1>
                     <i class="bi bi-x ml-20 cursor-pointer lg:hidden" onclick="Openbar()"></i>
@@ -26,7 +28,7 @@
                     </div>
                     <div class="hover:bg-gradient-to-r from-blue-200 to-blue-900  px-4 duration-300">
 
-                        <a href="/admin/{{auth()->user()->userCompany->id}}/plans">
+                        <a href="/admin/{{ auth()->user()->userCompany->id }}/plans">
 
                             <div
                                 class="p-2.5 mt-2 flex items-center cursor-pointer   hover:text-white dark:hover:text-white ">

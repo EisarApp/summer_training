@@ -2,6 +2,7 @@
 
 <head>
     <x-head />
+    <title>طلبات التدريب</title>
     <x-colors />
 </head>
 

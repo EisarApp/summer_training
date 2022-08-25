@@ -9,7 +9,7 @@
             p-2 w-[260px] overflow-y-auto text-center bg-gray-100 shadow h-screen overflow-hidden">
             <div class="text-gray-500 text-xl">
                 <div class="p-2.5 mt-1 flex items-center rounded-md">
-                    <h1 class="text-[15px] mb-7 mt-5 md:mr-7 text-xl text-gray-500 font-bold"> <img src="images\logo.png"
+                    <h1 class="text-[15px] mb-7 mt-5 text-xl text-gray-500 font-bold"> <img src="images\logo.png"
                             alt="">
                     </h1>
                     <i class="bi bi-x ml-20 cursor-pointer lg:hidden" onclick="Openbar()"></i>
