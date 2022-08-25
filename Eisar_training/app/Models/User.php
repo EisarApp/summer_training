@@ -43,4 +43,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserTrainee::class, 'user_id', 'id');
     }
+    public function trainingRequests()
+    {
+        $this->hasMany(TrainingRequest::class);
+    }
 }

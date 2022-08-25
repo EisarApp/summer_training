@@ -10,7 +10,7 @@ class UserTrainee extends Model
 {
 
     protected $guarded = ['id'];
-    
+
     protected $table = 'user_trainees';
     public $timestamps = true;
 
@@ -48,6 +48,6 @@ class UserTrainee extends Model
 
     public function trainingRequests()
     {
-        $this->hasMany(TrainingRequest::class);
+        return $this->hasMany(TrainingRequest::class, 'user_id', 'id');
     }
 }

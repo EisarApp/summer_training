@@ -10,6 +10,7 @@ use App\Models\UserTrainee;
 class TrainingRequest extends Model
 {
 
+    protected $guarded = [];
     protected $table = 'training_requests';
     public $timestamps = true;
 

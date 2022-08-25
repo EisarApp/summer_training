@@ -28,7 +28,9 @@
                 مستندات اضافية مطلوبة:
             </h1>
         @endif
-        <form method="post" action="/create">
+        <form method="post" action="/trainingRequset">
+            @csrf
+            <input type="hidden" value="{{$plan->id}}" name="plan_id">
             @if ($plan->require_training_letter)
                 <div class="my-4">
                     <h2 class="mb-4 font-semibold text-blue-400">
