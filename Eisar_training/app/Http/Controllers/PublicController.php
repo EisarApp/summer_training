@@ -12,7 +12,7 @@ class PublicController extends Controller
     {
         return view('company.index', [
             'companies' =>
-            UserCompany::filter(request(['city', 'search']))->latest()->paginate(6)->withQueryString(),
+            UserCompany::filter(request(['city', 'domain']))->latest()->paginate(6)->withQueryString(),
             'cities' => City::all()
         ]);
     }
